@@ -19,6 +19,7 @@ package fr.univartois.butinfo.r304.flatcraft.model;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import fr.univartois.butinfo.r304.flatcraft.model.map.GenerateMap;
 import fr.univartois.butinfo.r304.flatcraft.view.ISpriteStore;
 import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
 import javafx.beans.property.IntegerProperty;
@@ -153,9 +154,19 @@ public final class FlatcraftGame {
      *
      * @return La carte du jeu créée.
      */
+
+//Complétez la méthode createMap() de la classe FlatcraftGame pour
+//qu'elle utilise votre générateur de carte pour créer une carte.
+//Vous devrez convertir la hauteur et la largeur de la carte données
+//initialement en pixels en nombres de cellules.
+//Notez que pour cela, l'interface ISpriteStore vous fournit une
+//méthode indiquant la taille en pixels des sprites, donc des cellules.
+
     private GameMap createMap() {
-        // TODO Implémentez cette méthode.
-        return null;
+        int mapHeight = height / spriteStore.getSpriteSize();
+        int mapWidth = width / spriteStore.getSpriteSize();
+        return GenerateMap.generate(mapHeight, mapWidth);
+
     }
 
     /**
