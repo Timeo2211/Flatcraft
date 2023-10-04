@@ -1,4 +1,4 @@
-package fr.univartois.butinfo.r304.flatcraft.model;
+package fr.univartois.butinfo.r304.flatcraft.model.movables;
 
 import fr.univartois.butinfo.r304.flatcraft.model.movables.AbstractMovable;
 import fr.univartois.butinfo.r304.flatcraft.model.resources.Resource;
@@ -12,7 +12,7 @@ public class Player extends AbstractMovable {
     private IntegerProperty experience;
     private ObservableMap<Resource, Integer> inventory;
 
-    public Player(FlatcraftGame game, double xPosition, double yPosition, Sprite sprite) {
+    public Player(fr.univartois.butinfo.r304.flatcraft.model.FlatcraftGame game, double xPosition, double yPosition, Sprite sprite) {
         super(game, xPosition, yPosition, sprite);
         this.life = new SimpleIntegerProperty();
         this.experience = new SimpleIntegerProperty();
@@ -55,7 +55,7 @@ public class Player extends AbstractMovable {
         inventory.put(resource, inventory.get(resource) + quantity);
     }
 
-    public void removeItemFromInventory(Resource resource) {
+    public void removeResource(Resource resource) {
         int count = inventory.getOrDefault(resource, 0);
         if (count > 1) {
             inventory.put(resource, count - 1);
