@@ -23,14 +23,27 @@ public class MyCell extends AbstractCell{
         this.getSpriteProperty().set(resource.getSprite());
     }
 
-
     @Override
     public boolean move(IMovable movable) {
+        if (this.getResourceProperty().get() == null) {
+            movable.setX(this.getColumn() * this.getSpriteProperty().get().getWidth());
+            movable.setY(this.getRow() * this.getSpriteProperty().get().getHeight());
+            return true;
+        }
         return false;
     }
 
+
+
     @Override
     public boolean dig(IMovable player) {
+        if (this.getResourceProperty().get() != null) {
+            player.setX(this.getColumn() * this.getSpriteProperty().get().getWidth());
+            player.setY(this.getRow() * this.getSpriteProperty().get().getHeight());
+            this.getResourceProperty().set(null);
+            this.getSpriteProperty().set(null);
+            return true;
+        }
         return false;
     }
 }
