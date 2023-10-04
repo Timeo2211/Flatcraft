@@ -2,8 +2,9 @@ package fr.univartois.butinfo.r304.flatcraft.model;
 
 import fr.univartois.butinfo.r304.flatcraft.model.movables.AbstractMovable;
 import fr.univartois.butinfo.r304.flatcraft.model.resources.Resource;
-import javafx.beans.property.IntegerProperty;
-import javafx.collections.ObservableMap;
+import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
+import javafx.beans.property.*;
+import javafx.collections.*;
 
 public class Player extends AbstractMovable {
 
@@ -11,8 +12,11 @@ public class Player extends AbstractMovable {
     private IntegerProperty experience;
     private ObservableMap<Resource, Integer> inventory;
 
-    protected Player(FlatcraftGame game, double xPosition, double yPosition, fr.univartois.butinfo.r304.flatcraft.view.Sprite sprite) {
+    public Player(FlatcraftGame game, double xPosition, double yPosition, Sprite sprite) {
         super(game, xPosition, yPosition, sprite);
+        this.life = new SimpleIntegerProperty();
+        this.experience = new SimpleIntegerProperty();
+        this.inventory = FXCollections.observableHashMap();
     }
 
     public int getLife() {
@@ -45,5 +49,18 @@ public class Player extends AbstractMovable {
 
     public void setInventory(ObservableMap<Resource, Integer> inventory) {
         this.inventory = inventory;
+    }
+
+    public void addResource(Resource resource, int quantity) {
+        inventory.put(resource, inventory.get(resource) + quantity);
+    }
+
+    public void removeItemFromInventory(Resource resource) {
+        int count = inventory.getOrDefault(resource, 0);
+        if (count > 1) {
+            inventory.put(resource, count - 1);
+        } else {
+            inventory.remove(resource);
+        }
     }
 }
