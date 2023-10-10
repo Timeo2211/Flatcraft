@@ -23,6 +23,7 @@ import fr.univartois.butinfo.r304.flatcraft.view.ISpriteStore;
 import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import fr.univartois.butinfo.r304.flatcraft.model.movables.*;
 
 /**
  * La classe {@link FlatcraftGame} permet de gérer une partie du jeu Flatcraft.
@@ -139,8 +140,12 @@ public final class FlatcraftGame {
         // On crée la carte du jeu.
         map = createMap();
         controller.prepare(map);
-
-        // TODO On crée le joueur, qui se trouve sur le sol à gauche de la carte.
+        // Ajoute a la liste movableObject ainsi qu'au controller pour crée ce joueur
+        player = new Player(this, 50, 300, spriteStore.getSprite("player"));
+        movableObjects.add(player);
+        controller.addMovable(player);
+        controller.bindTime(time);
+        controller.bindLevel(level);
 
         // TODO On fait le lien entre les différentes propriétés et leur affichage.
 
