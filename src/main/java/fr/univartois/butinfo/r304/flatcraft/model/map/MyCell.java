@@ -9,18 +9,17 @@ public class MyCell extends AbstractCell{
     private int row;
     private int column;
 
-    protected MyCell(int row, int column) {
+    public MyCell(int row, int column) {
         super(row, column);
     }
 
 
-    protected void AbstractCell(Sprite sprite) {
-        this.getSpriteProperty().set(sprite);
+    public MyCell(Sprite sprite) {
+        super(sprite);
     }
 
-    protected void AbstractCell(Resource resource) {
-        this.getResourceProperty().set(resource);
-        this.getSpriteProperty().set(resource.getSprite());
+    public MyCell(Resource resource) {
+        super(resource);
     }
 
     @Override
