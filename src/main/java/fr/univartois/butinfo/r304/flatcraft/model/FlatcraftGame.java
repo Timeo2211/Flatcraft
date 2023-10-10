@@ -234,7 +234,8 @@ public final class FlatcraftGame {
      * Fait creuser le joueur vers le bas.
      */
     public void digDown() {
-        // TODO Implémentez cette méthode.
+        this.dig(getCellOf(player));
+        this.move(player);
     }
 
     /**
