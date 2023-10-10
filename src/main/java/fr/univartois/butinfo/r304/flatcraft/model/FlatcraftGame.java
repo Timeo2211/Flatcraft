@@ -213,7 +213,7 @@ public final class FlatcraftGame {
      * Interrompt le déplacement du joueur.
      */
     public void stopMoving() {
-        // TODO Implémentez cette méthode.
+        this.player.move(0);
     }
 
     /**
