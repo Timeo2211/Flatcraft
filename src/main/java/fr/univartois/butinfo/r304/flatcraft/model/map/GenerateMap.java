@@ -23,10 +23,10 @@ public class GenerateMap {
     }
 
 
-    public SimpleGameMap generateMap(){
-        return new SimpleGameMap(height, width, 0);
+    public static SimpleGameMap generate(int height, int width){
+        return new SimpleGameMap(height, width, 10);
     }
-    public generateSky(){
+    public void generateSky(){
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
                 map.setAt(i, j, cellFactory.createSky());
@@ -34,7 +34,7 @@ public class GenerateMap {
         }
     }
 
-    public generateSoilSurface(){
+    public void generateSoilSurface(){
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
                 map.setAt(i, j, cellFactory.createSubSoil());
@@ -42,7 +42,7 @@ public class GenerateMap {
         }
     }
 
-    public generateSubSoil(){
+    public void generateSubSoil(){
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
                 map.setAt(i, j, cellFactory.createSubSoil());
