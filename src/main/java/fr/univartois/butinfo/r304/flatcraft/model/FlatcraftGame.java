@@ -19,6 +19,7 @@ package fr.univartois.butinfo.r304.flatcraft.model;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import fr.univartois.butinfo.r304.flatcraft.model.map.GenerateMap;
 import fr.univartois.butinfo.r304.flatcraft.view.ISpriteStore;
 import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
 import javafx.beans.property.IntegerProperty;
@@ -158,9 +159,13 @@ public final class FlatcraftGame {
      *
      * @return La carte du jeu créée.
      */
+
+
     private GameMap createMap() {
-        // TODO Implémentez cette méthode.
-        return null;
+        int mapHeight = height / spriteStore.getSpriteSize();
+        int mapWidth = width / spriteStore.getSpriteSize();
+        return GenerateMap.generate(mapHeight, mapWidth);
+
     }
 
     /**
