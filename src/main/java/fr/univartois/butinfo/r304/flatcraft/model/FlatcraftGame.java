@@ -220,14 +220,12 @@ public final class FlatcraftGame {
      * Fait sauter le joueur.
      */
     public void jump() {
-        // TODO Cette méthode vous sera fournie ultérieurement.
     }
 
     /**
      * Fait creuser le joueur vers le haut.
      */
     public void digUp() {
-        // TODO Nous reviendrons plus tard sur cette méthode.
     }
 
     /**
@@ -242,14 +240,12 @@ public final class FlatcraftGame {
      * Fait creuser le joueur vers la gauche.
      */
     public void digLeft() {
-        // TODO Implémentez cette méthode.
     }
 
     /**
      * Fait creuser le joueur vers la droite.
      */
     public void digRight() {
-        // TODO Implémentez cette méthode.
     }
 
     /**
@@ -258,7 +254,10 @@ public final class FlatcraftGame {
      * @param toDig La cellule sur laquelle creuser.
      */
     private void dig(Cell toDig) {
-        // TODO Implémentez cette méthode.
+        if (toDig!=null) {
+            Cell sky = cellFactory.createSky();
+            map.setAt(toDig.getRow(), toDig.getColumn(), sky);
+        }
     }
 
     /**
