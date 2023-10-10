@@ -155,12 +155,6 @@ public final class FlatcraftGame {
      * @return La carte du jeu créée.
      */
 
-//Complétez la méthode createMap() de la classe FlatcraftGame pour
-//qu'elle utilise votre générateur de carte pour créer une carte.
-//Vous devrez convertir la hauteur et la largeur de la carte données
-//initialement en pixels en nombres de cellules.
-//Notez que pour cela, l'interface ISpriteStore vous fournit une
-//méthode indiquant la taille en pixels des sprites, donc des cellules.
 
     private GameMap createMap() {
         int mapHeight = height / spriteStore.getSpriteSize();
