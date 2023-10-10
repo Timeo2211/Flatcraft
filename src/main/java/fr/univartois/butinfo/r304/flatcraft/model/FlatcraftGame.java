@@ -194,14 +194,14 @@ public final class FlatcraftGame {
      * Fait se déplacer le joueur vers la gauche.
      */
     public void moveLeft() {
-        // TODO Implémentez cette méthode.
+        this.player.move(-1);
     }
 
     /**
      * Fait se déplacer le joueur vers la droite.
      */
     public void moveRight() {
-        // TODO Implémentez cette méthode.
+        this.player.move(1);
     }
 
     /**
@@ -223,42 +223,50 @@ public final class FlatcraftGame {
      * Interrompt le déplacement du joueur.
      */
     public void stopMoving() {
-        // TODO Implémentez cette méthode.
+        this.player.move(0);
     }
 
     /**
      * Fait sauter le joueur.
      */
     public void jump() {
-        // TODO Cette méthode vous sera fournie ultérieurement.
     }
 
     /**
      * Fait creuser le joueur vers le haut.
      */
     public void digUp() {
-        // TODO Nous reviendrons plus tard sur cette méthode.
     }
 
     /**
      * Fait creuser le joueur vers le bas.
      */
     public void digDown() {
-        // TODO Implémentez cette méthode.
+        Cell currentCell = getCellOf(player);
+        Cell below = map.getAt(currentCell.getRow(), currentCell.getColumn()-1);
+        if (below != null) {
+            this.dig(below);
+        }
+        this.move(player);
     }
 
     /**
      * Fait creuser le joueur vers la gauche.
      */
     public void digLeft() {
-        // TODO Implémentez cette méthode.
+        Cell currentCell = getCellOf(player);
+        Cell below = map.getAt(currentCell.getRow() - 1, currentCell.getColumn());
+
     }
 
     /**
      * Fait creuser le joueur vers la droite.
      */
     public void digRight() {
-        // TODO Implémentez cette méthode.
+
+        Cell currentCell = getCellOf(player);
+        Cell below = map.getAt(currentCell.getRow() + 1, currentCell.getColumn());
+
     }
 
     /**
@@ -267,7 +275,10 @@ public final class FlatcraftGame {
      * @param toDig La cellule sur laquelle creuser.
      */
     private void dig(Cell toDig) {
-        // TODO Implémentez cette méthode.
+        if (toDig!=null) {
+            Cell sky = cellFactory.createSky();
+            map.setAt(toDig.getRow(), toDig.getColumn(), sky);
+        }
     }
 
     /**
