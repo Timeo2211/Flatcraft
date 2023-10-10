@@ -142,7 +142,7 @@ public final class FlatcraftGame {
         map = createMap();
         controller.prepare(map);
         // Ajoute a la liste movableObject ainsi qu'au controller pour crée ce joueur
-        player = new Player(this, 50, 300, spriteStore.getSprite("player"));
+        player = new Player(this, 0, (map.getSoilHeight()-1) *spriteStore.getSpriteSize(), spriteStore.getSprite("tool_steelpick"));
         movableObjects.add(player);
         controller.addMovable(player);
         controller.bindTime(time);
@@ -163,7 +163,7 @@ public final class FlatcraftGame {
     private GameMap createMap() {
         int mapHeight = height / spriteStore.getSpriteSize();
         int mapWidth = width / spriteStore.getSpriteSize();
-        return GenerateMap.generate(mapHeight, mapWidth);
+        return GenerateMap.generate(mapHeight, mapWidth, cellFactory);
 
     }
 

@@ -23,30 +23,25 @@ public class GenerateMap {
     }
 
 
-    public static SimpleGameMap generate(int height, int width){
-        return new SimpleGameMap(height, width, 10);
-    }
-    public void generateSky(){
+    public static GameMap generate(int height, int width, CellFactory cellFactory){
+        GameMap map = new SimpleGameMap(height, width, 2 * height / 3);
+
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
                 map.setAt(i, j, cellFactory.createSky());
             }
         }
-    }
 
-    public void generateSoilSurface(){
-        for(int i = 0; i < height; i++){
+        for(int j = 0; j < width; j++){
+            map.setAt(map.getSoilHeight(), j, cellFactory.createSoilSurface());
+        }
+
+        for(int i = map.getSoilHeight() + 1; i < height; i++){
             for(int j = 0; j < width; j++){
                 map.setAt(i, j, cellFactory.createSubSoil());
             }
         }
+        return map;
     }
 
-    public void generateSubSoil(){
-        for(int i = 0; i < height; i++){
-            for(int j = 0; j < width; j++){
-                map.setAt(i, j, cellFactory.createSubSoil());
-            }
-        }
-    }
 }
