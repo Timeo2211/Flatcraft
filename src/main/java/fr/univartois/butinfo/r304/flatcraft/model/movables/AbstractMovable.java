@@ -341,7 +341,6 @@ public abstract class AbstractMovable implements IMovable {
         return false;
     }
 
-    //Proposez une nouvelle variante de déplacement faisant se déplacer les mobs de manière aléatoire.
 
     public boolean moveRandom(long delta) {
         // On met à jour la position de l'objet sur l'axe x.
