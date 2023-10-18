@@ -186,28 +186,25 @@ public final class FlatcraftGame {
      * Fait se déplacer le joueur vers le haut.
      */
     public void moveUp() {
-        // TODO Implémentez cette méthode.
+        this.player.move(0);
     }
 
     /**
      * Fait se déplacer le joueur vers le bas.
      */
     public void moveDown() {
-        // TODO Implémentez cette méthode.
     }
 
     /**
      * Fait se déplacer le joueur vers la gauche.
      */
     public void moveLeft() {
-        this.player.move(-1);
     }
 
     /**
      * Fait se déplacer le joueur vers la droite.
      */
     public void moveRight() {
-        this.player.move(1);
     }
 
     /**
