@@ -186,28 +186,25 @@ public final class FlatcraftGame {
      * Fait se déplacer le joueur vers le haut.
      */
     public void moveUp() {
-        // TODO Implémentez cette méthode.
+        this.player.move(0);
     }
 
     /**
      * Fait se déplacer le joueur vers le bas.
      */
     public void moveDown() {
-        // TODO Implémentez cette méthode.
     }
 
     /**
      * Fait se déplacer le joueur vers la gauche.
      */
     public void moveLeft() {
-        this.player.move(-1);
     }
 
     /**
      * Fait se déplacer le joueur vers la droite.
      */
     public void moveRight() {
-        this.player.move(1);
     }
 
     /**
@@ -306,69 +303,5 @@ public final class FlatcraftGame {
 
         // On récupère enfin la cellule à cette position dans la carte.
         return map.getAt(row, column);
-    }
-
-
-    public void addTerril(int row, int column, int size){
-        int i = 0;
-        int j = 0;
-        int k = 0;
-        int l = 0;
-        int m = 0;
-
-        while(i < size){
-            while(j < size){
-                while(k < size){
-                    while(l < size){
-                        while(m < size){
-                            map.setAt(row + i, column + j, cellFactory.createSubSoil());
-                            m++;
-                        }
-                        map.setAt(row + i, column + j, cellFactory.createSubSoil());
-                        l++;
-                    }
-                    map.setAt(row + i, column + j, cellFactory.createSubSoil());
-                    k++;
-                }
-                map.setAt(row + i, column + j, cellFactory.createSubSoil());
-                j++;
-            }
-            map.setAt(row + i, column + j, cellFactory.createSubSoil());
-            i++;
-        }
-    }
-
-
-    public void addTree(int row, int column, int size) {
-        int i = 0;
-        int j = 0;
-        int k = 0;
-        int l = 0;
-        int m = 0;
-
-        while (i < size) {
-            while (j < size) {
-                while (k < size) {
-                    while (l < size) {
-                        while (m < size) {
-                            map.setAt(row + i, column + j, cellFactory.createSubSoil());
-                            m++;
-                        }
-                        map.setAt(row + i, column + j, cellFactory.createSubSoil());
-                        l++;
-                    }
-                    map.setAt(row + i, column + j, cellFactory.createSubSoil());
-                    k++;
-                }
-                map.setAt(row + i, column + j, cellFactory.createSubSoil());
-                j++;
-            }
-            map.setAt(row + i, column + j, cellFactory.createSubSoil());
-            i++;
-        }
-
-
-
-
     }
 }

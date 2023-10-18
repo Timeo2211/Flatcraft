@@ -18,10 +18,12 @@ package fr.univartois.butinfo.r304.flatcraft;
 
 import java.io.IOException;
 
-import fr.univartois.butinfo.r304.flatcraft.controller.FlatcraftController;
+import fr.univartois.butinfo.r304.flatcraft.controller.*;
 import fr.univartois.butinfo.r304.flatcraft.model.CreateInstance;
 import fr.univartois.butinfo.r304.flatcraft.model.FlatcraftGame;
-import fr.univartois.butinfo.r304.flatcraft.view.SpriteStore;
+import fr.univartois.butinfo.r304.flatcraft.view.*;
+import fr.univartois.butinfo.r304.flatcraft.model.map.*;
+import fr.univartois.butinfo.r304.flatcraft.model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -47,11 +49,8 @@ public final class Flatcraft extends Application {
      */
     private static final int GAME_HEIGHT = 720;
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see javafx.application.Application#start(javafx.stage.Stage)
-     */
+    private static IGenerateMap generateMap;
+
     @Override
     public void start(Stage stage) throws IOException {
         // On commence par charger la vue et son contrôleur.
@@ -59,7 +58,6 @@ public final class Flatcraft extends Application {
         Parent viewContent = fxmlLoader.load();
         FlatcraftController controller = fxmlLoader.getController();
         controller.setStage(stage);
-
 
         FlatcraftGame game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT, new SpriteStore(),  new CreateInstance());
         controller.setGame(game);
