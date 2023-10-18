@@ -3,12 +3,7 @@ package fr.univartois.butinfo.r304.flatcraft.model.map;
 import fr.univartois.butinfo.r304.flatcraft.model.CellFactory;
 import fr.univartois.butinfo.r304.flatcraft.model.GameMap;
 
-public class GenerateMap {
-
-    //Dans cette classe définissez une méthode retournant la carte générée.
-    //Pour la génération, vous aurez besoin de la hauteur et de la largeur
-    //(en nombre de cellules) de la carte à générer, ainsi que d'une
-    //instance de CellFactory.
+public class GenerateMap implements fr.univartois.butinfo.r304.flatcraft.model.IGenerateMap {
 
     private int height;
     private int width;
@@ -23,7 +18,8 @@ public class GenerateMap {
     }
 
 
-    public static GameMap generate(int height, int width, CellFactory cellFactory){
+    @Override
+    public GameMap generate(int height, int width, CellFactory cellFactory){
         GameMap map = new SimpleGameMap(height, width, 2 * height / 3);
 
         for(int i = 0; i < height; i++){
