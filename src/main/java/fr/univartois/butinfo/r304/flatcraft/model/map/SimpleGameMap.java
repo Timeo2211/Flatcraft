@@ -138,4 +138,5 @@ public final class SimpleGameMap implements GameMap {
         cells[row][column].replaceBy(cell);
     }
 
+
 }

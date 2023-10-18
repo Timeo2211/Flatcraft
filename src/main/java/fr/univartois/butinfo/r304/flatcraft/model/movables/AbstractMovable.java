@@ -341,4 +341,33 @@ public abstract class AbstractMovable implements IMovable {
         return false;
     }
 
+    //Proposez une nouvelle variante de déplacement faisant se déplacer les mobs de manière aléatoire.
+
+    public boolean moveRandom(long delta) {
+        // On met à jour la position de l'objet sur l'axe x.
+        int limitMaxX = game.getWidth() - getWidth();
+        double newX = updatePosition(xPosition.get(), horizontalSpeed, delta, 0, limitMaxX);
+        xPosition.set(newX);
+
+        // On met à jour la position de l'objet sur l'axe y.
+        int limitMaxY = game.getHeight() - getHeight();
+        double newY = updatePosition(yPosition.get(), verticalSpeed, delta, 0, limitMaxY);
+        yPosition.set(newY);
+
+        if ((newX == 0) || (newX == limitMaxX)) {
+            // L'objet a atteint la limite sur l'axe x.
+            return false;
+        }
+
+        if ((newY == 0) || (newY == limitMaxY)) {
+            // L'objet a atteint la limite sur l'axe y.
+            return false;
+        }
+
+        // L'objet n'a atteint aucune limite
+        return true;
+    }
+
+
+
 }
