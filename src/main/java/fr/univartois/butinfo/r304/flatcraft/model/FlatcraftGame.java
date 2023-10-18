@@ -308,4 +308,67 @@ public final class FlatcraftGame {
         return map.getAt(row, column);
     }
 
+
+    public void addTerril(int row, int column, int size){
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        int l = 0;
+        int m = 0;
+
+        while(i < size){
+            while(j < size){
+                while(k < size){
+                    while(l < size){
+                        while(m < size){
+                            map.setAt(row + i, column + j, cellFactory.createSubSoil());
+                            m++;
+                        }
+                        map.setAt(row + i, column + j, cellFactory.createSubSoil());
+                        l++;
+                    }
+                    map.setAt(row + i, column + j, cellFactory.createSubSoil());
+                    k++;
+                }
+                map.setAt(row + i, column + j, cellFactory.createSubSoil());
+                j++;
+            }
+            map.setAt(row + i, column + j, cellFactory.createSubSoil());
+            i++;
+        }
+    }
+
+
+    public void addTree(int row, int column, int size) {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        int l = 0;
+        int m = 0;
+
+        while (i < size) {
+            while (j < size) {
+                while (k < size) {
+                    while (l < size) {
+                        while (m < size) {
+                            map.setAt(row + i, column + j, cellFactory.createSubSoil());
+                            m++;
+                        }
+                        map.setAt(row + i, column + j, cellFactory.createSubSoil());
+                        l++;
+                    }
+                    map.setAt(row + i, column + j, cellFactory.createSubSoil());
+                    k++;
+                }
+                map.setAt(row + i, column + j, cellFactory.createSubSoil());
+                j++;
+            }
+            map.setAt(row + i, column + j, cellFactory.createSubSoil());
+            i++;
+        }
+
+
+
+
+    }
 }
