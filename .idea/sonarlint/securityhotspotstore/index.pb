@@ -37,3 +37,5 @@ y
 Isrc/main/java/fr/univartois/butinfo/r304/flatcraft/view/ISpriteStore.java,6\f\6f233bfd43266f8e06892667af3cb3d07160d6c0
 r
 Bsrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/Cell.java,2\4\24eaa57ab6344d3b024d550d50b674d2c17a7aaa
+ç
+]projet-2023-2024/src/main/java/fr/univartois/butinfo/r304/flatcraft/model/CreateInstance.java,2\b\2b589acf89f09e1b39483a9ba074366c6d2671b4
