@@ -37,7 +37,7 @@ public class CreateInstance implements CellFactory {
 
     @Override
     public Cell createLeaves() {
-        return new MyCell(spriteStore.getSprite("leaves"));
+        return new MyCell(spriteStore.getSprite("leaves_simple"));
     }
 
     @Override
