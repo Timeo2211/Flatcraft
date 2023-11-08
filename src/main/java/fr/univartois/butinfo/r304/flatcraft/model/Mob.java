@@ -15,6 +15,15 @@ public class Mob implements IMovable {
     private double speed;
     private Sprite sprite;
 
+    public Mob(int width, int height, int xPosition, int yPosition, double speed, Sprite sprite) {
+        this.width = width;
+        this.height = height;
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
+        this.speed = speed;
+        this.sprite = sprite;
+    }
+
 
     /**
      * Donne la largeur de cet objet.
