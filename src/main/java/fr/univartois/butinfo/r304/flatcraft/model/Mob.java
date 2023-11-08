@@ -15,6 +15,24 @@ public class Mob implements IMovable {
     private double speed;
     private Sprite sprite;
 
+    /**
+     * Construit un nouvel objet mobile.
+     *
+     * @param width La largeur de cet objet.
+     * @param height La hauteur de cet objet.
+     * @param xPosition La position en x de cet objet.
+     * @param yPosition La position en y de cet objet.
+     * @param speed La vitesse de cet objet.
+     * @param sprite L'instance de {@link Sprite} représentant cet objet.
+     */
+    public Mob(int width, int height, int xPosition, int yPosition, double speed, Sprite sprite) {
+        this.width = width;
+        this.height = height;
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
+        this.speed = speed;
+        this.sprite = sprite;
+    }
 
     /**
      * Donne la largeur de cet objet.
