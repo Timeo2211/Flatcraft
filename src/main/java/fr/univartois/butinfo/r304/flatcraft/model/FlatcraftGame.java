@@ -81,6 +81,11 @@ public final class FlatcraftGame {
     private IMovable player;
 
     /**
+     * La représentation du mob.
+     */
+    private IMovable mob;
+
+    /**
      * La liste des objets mobiles du jeu.
      */
     private List<IMovable> movableObjects = new CopyOnWriteArrayList<>();
@@ -159,13 +164,21 @@ public final class FlatcraftGame {
         animation.start();
     }
 
+
+    /**
+     * Crée un mob
+     */
+    public void createMobs(int width, int height, int xPosition, int yPosition, double speed, Sprite sprite) {
+        Mob mob = new Mob(width, height, xPosition, yPosition, speed, sprite);
+        movableObjects.add(mob);
+        controller.addMovable(mob);
+    }
+
     /**
      * Crée la carte du jeu.
      *
      * @return La carte du jeu créée.
      */
-
-
     private GameMap createMap() {
         int mapHeight = height / spriteStore.getSpriteSize();
         int mapWidth = width / spriteStore.getSpriteSize();
