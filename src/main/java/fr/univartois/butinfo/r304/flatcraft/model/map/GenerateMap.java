@@ -42,7 +42,7 @@ public class GenerateMap implements fr.univartois.butinfo.r304.flatcraft.model.I
         Random posTerril = new Random();
         int pos = posTerril.nextInt(75);
         Random nbTerril = new Random();
-        int nb = nbTerril.nextInt(5);
+        int nb = nbTerril.nextInt(5) + 1;
         for (int i = 0; i < nb; i++) {
             for(int j = 0; j < 5; j++){
                 map.setAt(map.getSoilHeight() - 1, pos+j, cellFactory.createTerril());
@@ -57,27 +57,32 @@ public class GenerateMap implements fr.univartois.butinfo.r304.flatcraft.model.I
         }
 
         Random posTree = new Random();
-        int posT = posTree.nextInt(75);
         Random nbTree = new Random();
-        int nbT = nbTree.nextInt(5);
+        int nbT = nbTree.nextInt(5) + 1;
         for (int i = 0; i < nbT; i++) {
+            int posT = posTree.nextInt(75);
+
+            while (map.getAt(map.getSoilHeight() - 1, posT) == cellFactory.createTerril()) {
+                posT = posTree.nextInt(75);
+            }
+
             for (int x = 0; x < 5; x++) {
                 map.setAt(map.getSoilHeight() - 1 - x, posT, cellFactory.createTree());
             }
-            for (int j = 0; j < 7; j++) {
-                map.setAt(map.getSoilHeight() - 6, posT + j, cellFactory.createLeaves());
+            for (int x = 0; x < 7; x++) {
+                map.setAt(map.getSoilHeight() - 6, posT - 3 + x, cellFactory.createLeaves());
             }
-            for (int j = 0; j < 5; j++) {
-                map.setAt(map.getSoilHeight() - 7, posT + j, cellFactory.createLeaves());
+            for (int x = 0; x < 5; x++) {
+                map.setAt(map.getSoilHeight() - 7, posT - 2 + x, cellFactory.createLeaves());
             }
-            for (int j = 0; j < 3; j++) {
-                map.setAt(map.getSoilHeight() - 8, posT + j, cellFactory.createLeaves());
+            for (int x = 0; x < 3; x++) {
+                map.setAt(map.getSoilHeight() - 8, posT - 1 + x, cellFactory.createLeaves());
             }
-            for (int j = 0; j < 1; j++) {
-                map.setAt(map.getSoilHeight() - 9, posT + j, cellFactory.createLeaves());
+            for (int x = 0; x < 1; x++) {
+                map.setAt(map.getSoilHeight() - 9, posT + x, cellFactory.createLeaves());
             }
-            posT = posTree.nextInt(75);
         }
+
 
 
 
