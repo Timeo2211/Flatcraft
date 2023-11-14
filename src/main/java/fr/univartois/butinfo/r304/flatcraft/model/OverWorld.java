@@ -4,7 +4,7 @@ import fr.univartois.butinfo.r304.flatcraft.model.map.MyCell;
 import fr.univartois.butinfo.r304.flatcraft.view.ISpriteStore;
 import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
 
-public class CreateInstance implements CellFactory {
+public class OverWorld implements CellFactory {
 
     private ISpriteStore spriteStore;
 
