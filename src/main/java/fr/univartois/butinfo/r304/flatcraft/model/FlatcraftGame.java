@@ -236,6 +236,7 @@ public final class FlatcraftGame {
      */
     public void stopMoving() {
         player.setHorizontalSpeed(0);
+        this.player.setVerticalSpeed(0);
     }
 
     /**
