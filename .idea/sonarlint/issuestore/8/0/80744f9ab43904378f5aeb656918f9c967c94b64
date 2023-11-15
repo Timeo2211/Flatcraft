@@ -1,5 +1,9 @@
 
-m
-java:S1128"KRemove this unused import 'fr.univartois.butinfo.r304.flatcraft.model.map'.(ÖìÛşÿÿÿÿ8…æ’—½1
+^
+java:S4973@"<Strings and Boxed types should be compared using "equals()".(Ô‘çÁúÿÿÿÿ8¡’•š½1
+^
+java:S4973D"<Strings and Boxed types should be compared using "equals()".(ÕÒÒ­üÿÿÿÿ8£’•š½1
+^
+java:S4973H"<Strings and Boxed types should be compared using "equals()".(ÑËí”ÿÿÿÿÿ8¤’•š½1
 Q
 java:S10684"/Remove this unused "generateMap" private field.(ÈÇŸÌúÿÿÿÿ8½îŒ—½1

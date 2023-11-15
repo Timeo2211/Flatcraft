@@ -41,5 +41,10 @@ public class Ender implements CellFactory{
     public Cell createTree() {
         return null;
     }
+
+    @Override
+    public Cell createWater() {
+        return null;
+    }
 }
 

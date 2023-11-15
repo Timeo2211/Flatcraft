@@ -19,8 +19,6 @@ Asrc/main/java/fr/univartois/butinfo/r304/flatcraft/Flatcraft.java,8\0\80744f9a
 Vsrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/movables/AbstractMovable.java,b\2\b2286dd773ec9084b86fda78a8adbc74899cd866
 z
 Jsrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/IGenerateMap.java,6\4\64d2e0c71c95d584d60f8b3f1ef0f1d82d80c30d
-|
-Lsrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/CreateInstance.java,6\e\6ed0171c24c8794ee7f53127c978051e84a4a46f
 y
 Isrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/CellFactory.java,9\c\9c47d731d67616cd4d6b364c8434f6add8a5013a
 }
@@ -41,3 +39,8 @@ w
 Gsrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/OverWorld.java,2\d\2d57f85ed9c4d3b91a1cd4641a2b998b14d2016a
 t
 Dsrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/Nether.java,f\c\fcca03f30f40451e49a9db4bee2d3fd8b6ab6be3
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+s
+Csrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/Ender.java,e\b\ebba9e1aef1fe2af9e7d0cbbeb7e06136bf1f0c1
