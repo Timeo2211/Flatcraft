@@ -21,8 +21,8 @@ import java.io.IOException;
 import fr.univartois.butinfo.r304.flatcraft.controller.*;
 import fr.univartois.butinfo.r304.flatcraft.model.OverWorld;
 import fr.univartois.butinfo.r304.flatcraft.model.FlatcraftGame;
+import fr.univartois.butinfo.r304.flatcraft.model.map.WorldCell;
 import fr.univartois.butinfo.r304.flatcraft.view.*;
-import fr.univartois.butinfo.r304.flatcraft.model.map.*;
 import fr.univartois.butinfo.r304.flatcraft.model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -59,7 +59,24 @@ public final class Flatcraft extends Application {
         FlatcraftController controller = fxmlLoader.getController();
         controller.setStage(stage);
 
-        FlatcraftGame game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT, new SpriteStore(),  new OverWorld());
+        CellFactory cell = null;
+        String str = "overworld";
+        if(str == "nether"){
+            WorldCell factory = new WorldCell();
+            cell = factory.createCellNether();
+        }
+        else if(str == "ender"){
+            WorldCell factory = new WorldCell();
+            cell = factory.createCellEnder();
+        }
+        else if(str == "overworld"){
+            WorldCell factory = new WorldCell();
+            cell = factory.createCellOverWorld();
+        }
+
+
+
+        FlatcraftGame game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT, new SpriteStore(),  cell);
         controller.setGame(game);
         game.setController(controller);
         game.prepare();

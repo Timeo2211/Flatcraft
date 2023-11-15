@@ -109,6 +109,7 @@ public final class FlatcraftGame {
         this.cellFactory.setSpriteStore(spriteStore);
     }
 
+
     /**
      * Donne la largeur de la carte du jeu affichée (en pixels).
      *
