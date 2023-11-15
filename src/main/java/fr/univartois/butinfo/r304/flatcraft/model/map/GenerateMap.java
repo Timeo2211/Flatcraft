@@ -39,6 +39,21 @@ public class GenerateMap implements fr.univartois.butinfo.r304.flatcraft.model.I
             }
         }
 
+        Random posWater = new Random();
+        int posW = posWater.nextInt(75);
+        Random nbWater = new Random();
+        int nbW = nbWater.nextInt(5) + 1;
+        if (cellFactory.createWater() != null) {
+            // ajoute plus d'eau
+            for (int i = 0; i < nbW; i++) {
+                for (int j = 0; j < 5; j++) {
+                    map.setAt(map.getSoilHeight() , posW + j, cellFactory.createWater());
+                }
+                posW = posWater.nextInt(75);
+            }
+        }
+
+
         Random posTerril = new Random();
         int pos = posTerril.nextInt(75);
         Random nbTerril = new Random();
@@ -86,17 +101,13 @@ public class GenerateMap implements fr.univartois.butinfo.r304.flatcraft.model.I
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
         return map;
     }
+
+    // ajoute moi de l'eau seulement sur la première ligne de maniere aleatoire
+
+
+
+
 
 }
