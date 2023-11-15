@@ -36,17 +36,17 @@ public class Ender implements CellFactory{
 
     @Override
     public Cell createLeaves() {
-        return new MyCell(spriteStore.getSprite("leaves"));
+        return null;
     }
 
     @Override
     public Cell createTerril() {
-        return new MyCell(spriteStore.getSprite("sand"));
+        return null;
     }
 
     @Override
     public Cell createTree() {
-        return new MyCell(spriteStore.getSprite("tree"));
+        return null;
     }
 }
 
