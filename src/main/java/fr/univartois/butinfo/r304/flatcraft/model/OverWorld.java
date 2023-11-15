@@ -49,4 +49,7 @@ public class OverWorld implements CellFactory {
     public Cell createTree() {
         return new MyCell(spriteStore.getSprite("tree"));
     }
+
+    @Override
+    public Cell createWater() { return new MyCell(spriteStore.getSprite("water")); }
 }
