@@ -186,25 +186,34 @@ public final class FlatcraftGame {
      * Fait se déplacer le joueur vers le haut.
      */
     public void moveUp() {
-        this.player.move(0);
+        this.player.setVerticalSpeed(-100);
+        if (this.player.getY() <= 0) {
+            this.player.setVerticalSpeed(0);
+        }
     }
 
     /**
      * Fait se déplacer le joueur vers le bas.
      */
     public void moveDown() {
+        this.player.setVerticalSpeed(100);
+        if (this.player.getY() >= (map.getSoilHeight()-1) *spriteStore.getSpriteSize()) {
+            this.player.setVerticalSpeed(0);
+        }
     }
 
     /**
      * Fait se déplacer le joueur vers la gauche.
      */
     public void moveLeft() {
+        this.player.setHorizontalSpeed(-100);
     }
 
     /**
      * Fait se déplacer le joueur vers la droite.
      */
     public void moveRight() {
+        this.player.setHorizontalSpeed(100);
     }
 
     /**
@@ -226,7 +235,7 @@ public final class FlatcraftGame {
      * Interrompt le déplacement du joueur.
      */
     public void stopMoving() {
-        this.player.move(0);
+        player.setHorizontalSpeed(0);
     }
 
     /**
