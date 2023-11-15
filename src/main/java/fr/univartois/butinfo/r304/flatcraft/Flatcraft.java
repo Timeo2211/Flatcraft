@@ -19,7 +19,7 @@ package fr.univartois.butinfo.r304.flatcraft;
 import java.io.IOException;
 
 import fr.univartois.butinfo.r304.flatcraft.controller.*;
-import fr.univartois.butinfo.r304.flatcraft.model.CreateInstance;
+import fr.univartois.butinfo.r304.flatcraft.model.OverWorld;
 import fr.univartois.butinfo.r304.flatcraft.model.FlatcraftGame;
 import fr.univartois.butinfo.r304.flatcraft.view.*;
 import fr.univartois.butinfo.r304.flatcraft.model.map.*;
@@ -59,7 +59,7 @@ public final class Flatcraft extends Application {
         FlatcraftController controller = fxmlLoader.getController();
         controller.setStage(stage);
 
-        FlatcraftGame game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT, new SpriteStore(),  new CreateInstance());
+        FlatcraftGame game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT, new SpriteStore(),  new OverWorld());
         controller.setGame(game);
         game.setController(controller);
         game.prepare();
