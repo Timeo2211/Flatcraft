@@ -1,22 +1,28 @@
 
 o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(ô»—ú8Â¸´óº1
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(ô»—ú8ÍÔÔ—½1
 Y
-java:S1117"7Rename "map" which hides the field declared at line 13.(ÀâŠ€şÿÿÿÿ8Ã¸´óº1
+java:S1117"7Rename "map" which hides the field declared at line 13.(ÀâŠ€şÿÿÿÿ8ÏÔÔ—½1
 ;
-java:S2119*"Save and re-use this "Random".(üÜöÿ8Æ¸´óº1
+java:S2119*"Save and re-use this "Random".(ÖŞ™8ÓÔÔ—½1
 ;
-java:S2119,"Save and re-use this "Random".(ğæŞ 8Æ¸´óº1
+java:S2119,"Save and re-use this "Random".(ÏŞöş8ÓÔÔ—½1
 ;
-java:S2119;"Save and re-use this "Random".(€×æ¹8È¸´óº1
+java:S21199"Save and re-use this "Random".(üÜöÿ8ÔÔÔ—½1
+;
+java:S2119;"Save and re-use this "Random".(ğæŞ 8ÕÔÔ—½1
+;
+java:S2119J"Save and re-use this "Random".(€×æ¹8ÖÔÔ—½1
 @
-java:S2119<"Save and re-use this "Random".(Ÿ…øÇùÿÿÿÿ8È¸´óº1
+java:S2119K"Save and re-use this "Random".(Ÿ…øÇùÿÿÿÿ8×ÔÔ—½1
 G
-java:S1068	"*Remove this unused "height" private field.(ÅœÔ˜8Ê¸´óº1
+java:S1068	"*Remove this unused "height" private field.(ÅœÔ˜8ÚÔÔ—½1
 K
 java:S1068
-")Remove this unused "width" private field.(•õ¦òùÿÿÿÿ8Ê¸´óº1
+")Remove this unused "width" private field.(•õ¦òùÿÿÿÿ8ÚÔÔ—½1
 Q
-java:S1068"/Remove this unused "cellFactory" private field.(øû¸Çùÿÿÿÿ8Ê¸´óº1
+java:S1068"/Remove this unused "cellFactory" private field.(øû¸Çùÿÿÿÿ8ÚÔÔ—½1
 D
-java:S1068"'Remove this unused "map" private field.(Šï´ò8Ê¸´óº1
+java:S1068"'Remove this unused "map" private field.(Šï´ò8ÚÔÔ—½1
+ã
+java:S6541"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 69 to 64, Complexity from 20 to 14, Nesting Level from 3 to 2, Number of Variables from 33 to 6.(ô»—ú8…Ú—½1
