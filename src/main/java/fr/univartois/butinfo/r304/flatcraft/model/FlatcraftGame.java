@@ -236,8 +236,7 @@ public final class FlatcraftGame {
      * Interrompt le déplacement du joueur.
      */
     public void stopMoving() {
-        player.setHorizontalSpeed(0);
-        this.player.setVerticalSpeed(0);
+
     }
 
     /**
@@ -250,16 +249,16 @@ public final class FlatcraftGame {
      * Fait creuser le joueur vers le haut.
      */
     public void digUp() {
+       // TODO : A compléter.
     }
 
     /**
      * Fait creuser le joueur vers le bas.
      */
     public void digDown() {
-        if (player.getY() >= (map.getSoilHeight()-1) *spriteStore.getSpriteSize()) {
-            Cell currentCell = getCellOf(player);
-            Cell below = map.getAt(currentCell.getRow() + 1, currentCell.getColumn());
-            dig(below);
+        Cell currentCell = getCellOf(player);
+        if ((currentCell.getRow() + 1) < map.getHeight()) {
+            dig(map.getAt(currentCell.getRow() + 1, currentCell.getColumn()));
         }
     }
 
@@ -268,18 +267,19 @@ public final class FlatcraftGame {
      */
     public void digLeft() {
         Cell currentCell = getCellOf(player);
-        Cell below = map.getAt(currentCell.getRow() - 1, currentCell.getColumn());
-
+        if ((currentCell.getColumn() - 1) >= 0) {
+            dig(map.getAt(currentCell.getRow(), currentCell.getColumn() - 1));
+        }
     }
 
     /**
      * Fait creuser le joueur vers la droite.
      */
     public void digRight() {
-
         Cell currentCell = getCellOf(player);
-        Cell below = map.getAt(currentCell.getRow() + 1, currentCell.getColumn());
-
+        if ((currentCell.getColumn() + 1) < map.getWidth()) {
+            dig(map.getAt(currentCell.getRow(), currentCell.getColumn() + 1));
+        }
     }
 
     /**
