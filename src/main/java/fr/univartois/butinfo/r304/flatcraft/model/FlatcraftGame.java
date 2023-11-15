@@ -256,12 +256,11 @@ public final class FlatcraftGame {
      * Fait creuser le joueur vers le bas.
      */
     public void digDown() {
-        Cell currentCell = getCellOf(player);
-        Cell below = map.getAt(currentCell.getRow(), currentCell.getColumn()-1);
-        if (below != null) {
-            this.dig(below);
+        if (player.getY() >= (map.getSoilHeight()-1) *spriteStore.getSpriteSize()) {
+            Cell currentCell = getCellOf(player);
+            Cell below = map.getAt(currentCell.getRow() + 1, currentCell.getColumn());
+            dig(below);
         }
-        this.move(player);
     }
 
     /**
