@@ -4,7 +4,7 @@ import fr.univartois.butinfo.r304.flatcraft.model.map.MyCell;
 import fr.univartois.butinfo.r304.flatcraft.view.ISpriteStore;
 import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
 
-public class Nether implements CellFactory {
+public class Nether implements CellFactory{
 
     private ISpriteStore spriteStore;
 
@@ -22,17 +22,17 @@ public class Nether implements CellFactory {
 
     @Override
     public Cell createSoilSurface() {
-        return new MyCell(spriteStore.getSprite("obsidian"));
+        return new MyCell(spriteStore.getSprite("netherrack"));
     }
 
     @Override
     public Cell createSubSoil() {
-        return new MyCell(spriteStore.getSprite("copper_block"));
+        return new MyCell(spriteStore.getSprite("netherrack"));
     }
 
     @Override
     public Cell createTrunk() {
-        return new MyCell(spriteStore.getSprite("trunk"));
+        return null;
     }
 
     @Override
