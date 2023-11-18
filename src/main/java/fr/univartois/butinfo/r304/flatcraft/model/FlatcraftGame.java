@@ -80,6 +80,8 @@ public final class FlatcraftGame {
      */
     private IMovable player;
 
+    private IMovable mob;
+
     /**
      * La liste des objets mobiles du jeu.
      */
@@ -155,6 +157,11 @@ public final class FlatcraftGame {
         controller.bindLevel(level);
         controller.bindHealth(((Player) player).lifeProperty());
         controller.bindXP(((Player) player).experienceProperty());
+
+        // Ajoute a la liste movableObject ainsi qu'au controller pour crée ce mob
+        mob = new Mob(this, 10, (map.getSoilHeight()-1) *spriteStore.getSpriteSize(), spriteStore.getSprite("tool_meseaxe"), mob);
+        movableObjects.add(mob);
+
         // On démarre l'animation du jeu.
         animation.start();
     }
@@ -164,8 +171,6 @@ public final class FlatcraftGame {
      *
      * @return La carte du jeu créée.
      */
-
-
     private GameMap createMap() {
         int mapHeight = height / spriteStore.getSpriteSize();
         int mapWidth = width / spriteStore.getSpriteSize();
@@ -186,25 +191,34 @@ public final class FlatcraftGame {
      * Fait se déplacer le joueur vers le haut.
      */
     public void moveUp() {
-        this.player.move(0);
+        this.player.setVerticalSpeed(-100);
+        if (this.player.getY() <= 0) {
+            this.player.setVerticalSpeed(0);
+        }
     }
 
     /**
      * Fait se déplacer le joueur vers le bas.
      */
     public void moveDown() {
+        this.player.setVerticalSpeed(100);
+        if (this.player.getY() >= (map.getSoilHeight()-1) *spriteStore.getSpriteSize()) {
+            this.player.setVerticalSpeed(0);
+        }
     }
 
     /**
      * Fait se déplacer le joueur vers la gauche.
      */
     public void moveLeft() {
+        this.player.setHorizontalSpeed(-100);
     }
 
     /**
      * Fait se déplacer le joueur vers la droite.
      */
     public void moveRight() {
+        this.player.setHorizontalSpeed(100);
     }
 
     /**
@@ -226,7 +240,8 @@ public final class FlatcraftGame {
      * Interrompt le déplacement du joueur.
      */
     public void stopMoving() {
-        this.player.move(0);
+        player.setHorizontalSpeed(0);
+        this.player.setVerticalSpeed(0);
     }
 
     /**
