@@ -1,39 +1,29 @@
 package fr.univartois.butinfo.r304.flatcraft.model;
 
+import fr.univartois.butinfo.r304.flatcraft.model.movables.AbstractMovable;
 import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.FXCollections;
 
 
+public class Mob extends AbstractMovable implements IMovable {
 
-public class Mob implements IMovable {
-
-    private int width;
-    private int height;
-    private int xPosition;
-    private int yPosition;
+    private double xPosition;
+    private double yPosition;
     private double speed;
-    private Sprite sprite;
+    private IMovable iMovable;
 
-
-    /**
-     * Donne la largeur de cet objet.
-     *
-     * @return La largeur de cet objet.
-     */
-    @Override
-    public int getWidth() {
-        return width;
+    public Mob(FlatcraftGame game, double xPosition, double yPosition, Sprite sprite, IMovable iMovable) {
+        super(game, xPosition, yPosition, sprite);
+        this.speed = 50;
+        this.iMovable = iMovable;
     }
 
-    /**
-     * Donne la hauteur de cet objet.
-     *
-     * @return La hauteur de cet objet.
-     */
-    @Override
-    public int getHeight() {
-        return height;
+    public Mob(FlatcraftGame game, double xPosition, double yPosition, Sprite sprite) {
+        super(game, xPosition, yPosition, sprite);
+        this.speed = 50;
     }
 
     /**
@@ -44,16 +34,6 @@ public class Mob implements IMovable {
     @Override
     public void setX(int xPosition) {
         this.xPosition = xPosition;
-    }
-
-    /**
-     * Donne la position en x de cet objet.
-     *
-     * @return La position en x de cet objet.
-     */
-    @Override
-    public int getX() {
-        return xPosition;
     }
 
     /**
@@ -74,16 +54,6 @@ public class Mob implements IMovable {
     @Override
     public void setY(int yPosition) {
         this.yPosition = yPosition;
-    }
-
-    /**
-     * Donne la position en y de cet objet.
-     *
-     * @return La position en y de cet objet.
-     */
-    @Override
-    public int getY() {
-        return yPosition;
     }
 
     /**
@@ -137,26 +107,6 @@ public class Mob implements IMovable {
     }
 
     /**
-     * Modifie l'instance de {@link Sprite} représentant cet objet.
-     *
-     * @param sprite La nouvelle instance de {@link Sprite} représentant cet objet.
-     */
-    @Override
-    public void setSprite(Sprite sprite) {
-        this.sprite = sprite;
-    }
-
-    /**
-     * Donne l'instance de {@link Sprite} représentant cet objet.
-     *
-     * @return L'instance de {@link Sprite} représentant cet objet.
-     */
-    @Override
-    public Sprite getSprite() {
-        return sprite;
-    }
-
-    /**
      * Donne la propriété de cet objet correspondant au {@link Sprite} qui le représente.
      *
      * @return La propriété de cet objet correspondant à son {@link Sprite}.
@@ -179,17 +129,11 @@ public class Mob implements IMovable {
      */
     @Override
     public boolean move(long timeDelta) {
-        double horizontalDistance = speed * timeDelta / 1000.0;
-
-        xPosition += (int) horizontalDistance;
-
-        if (xPosition < 0) {
-            xPosition = 0;
-            return false;
-        } else if (xPosition > width) {
-            xPosition =  width;
+        double x = xPosition + speed * timeDelta / 1000;
+        if (x < 0 || x > game.getWidth()) {
             return false;
         }
+        xPosition = x;
         return true;
     }
 
@@ -203,4 +147,3 @@ public class Mob implements IMovable {
         return this;
     }
 }
-
