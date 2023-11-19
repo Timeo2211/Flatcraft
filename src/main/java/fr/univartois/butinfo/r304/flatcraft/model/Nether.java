@@ -49,4 +49,9 @@ public class Nether implements CellFactory{
     public Cell createTree() {
         return new MyCell(spriteStore.getSprite("tree"));
     }
+
+    @Override
+    public Cell createMob() {
+        return new MyCell(spriteStore.getSprite("tool_diamondsword"));
+    }
 }
