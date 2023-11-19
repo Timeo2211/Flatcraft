@@ -132,10 +132,35 @@ public final class Resource {
      *
      * @return La ressource obtenue après son extraction.
      */
-    public Resource digBlock() {
-        return this;
+    public void inflictDamage() {
+        if (hardness > 0) {
+            hardness--;
+        }
     }
 
+    public Resource digBlock() {
+        if (hardness == 0) {
+            System.out.println("La ressource a été prélevée.");
+            return new Resource(name, sprite, toolType, hardness);
+        } else {
+            System.out.println("La ressource ne peut pas encore être prélevée.");
+            return null;
+        }
+    }
+
+    public int getState() {
+        if (hardness == 0) {
+            return 0; // État de la ressource une fois prélevée
+        } else if (hardness >= 3) {
+            return 1; // État intact ou légèrement endommagé
+        } else if (hardness == 2) {
+            return 2; // État partiellement endommagé
+        } else if (hardness == 1) {
+            return 3; // État endommagé
+        } else {
+            return 4; // État très endommagé
+        }
+    }
     /*
      * (non-Javadoc)
      *
