@@ -21,11 +21,6 @@ public class Mob extends AbstractMovable implements IMovable {
         this.iMovable = iMovable;
     }
 
-    public Mob(FlatcraftGame game, double xPosition, double yPosition, Sprite sprite) {
-        super(game, xPosition, yPosition, sprite);
-        this.speed = 50;
-    }
-
     /**
      * Modifie la position en x de cet objet.
      *
