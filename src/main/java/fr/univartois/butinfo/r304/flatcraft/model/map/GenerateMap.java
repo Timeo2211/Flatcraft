@@ -85,7 +85,7 @@ public class GenerateMap implements fr.univartois.butinfo.r304.flatcraft.model.I
 
 
 
-
+        map.setAt(map.getSoilHeight() -1, 10, cellFactory.createMob());
 
 
 
