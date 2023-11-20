@@ -109,7 +109,7 @@ public class GenerateMap implements fr.univartois.butinfo.r304.flatcraft.model.I
         Random posRessource = new Random();
         int posH = posRessource.nextInt(74);
         int posV = posRessource.nextInt(height - map.getSoilHeight() - 1);
-        int nbRessources= posRessource.nextInt(15) + 1;
+        int nbRessources= posRessource.nextInt(25) + 1;
         //Génération de plusieurs minerais placé aléatoirement
         for (int i = 0; i < nbRessources; i++) {
             int ressource = posRessource.nextInt(4);
