@@ -46,5 +46,14 @@ public class Ender implements CellFactory{
     public Cell createWater() {
         return null;
     }
-}
 
+    @Override
+    public Cell createMob() {
+        return new MyCell(spriteStore.getSprite("tool_diamondsword"));
+    }
+
+    @Override
+    public Cell createRessource(int i) {
+        return new MyCell(spriteStore.getSprite("mineral_diamond"));
+    }
+}

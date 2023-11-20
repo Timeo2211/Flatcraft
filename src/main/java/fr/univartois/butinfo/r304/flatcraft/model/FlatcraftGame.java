@@ -80,6 +80,8 @@ public final class FlatcraftGame {
      */
     private IMovable player;
 
+    private IMovable mob;
+
     /**
      * La liste des objets mobiles du jeu.
      */
@@ -156,6 +158,11 @@ public final class FlatcraftGame {
         controller.bindLevel(level);
         controller.bindHealth(((Player) player).lifeProperty());
         controller.bindXP(((Player) player).experienceProperty());
+
+        // Ajoute a la liste movableObject ainsi qu'au controller pour crée ce mob
+        mob = new Mob(this, 10, (map.getSoilHeight()-1) *spriteStore.getSpriteSize(), spriteStore.getSprite("tool_meseaxe"), mob);
+        movableObjects.add(mob);
+
         // On démarre l'animation du jeu.
         animation.start();
     }
@@ -165,8 +172,6 @@ public final class FlatcraftGame {
      *
      * @return La carte du jeu créée.
      */
-
-
     private GameMap createMap() {
         int mapHeight = height / spriteStore.getSpriteSize();
         int mapWidth = width / spriteStore.getSpriteSize();
@@ -236,7 +241,8 @@ public final class FlatcraftGame {
      * Interrompt le déplacement du joueur.
      */
     public void stopMoving() {
-
+        player.setHorizontalSpeed(0);
+        this.player.setVerticalSpeed(0);
     }
 
     /**

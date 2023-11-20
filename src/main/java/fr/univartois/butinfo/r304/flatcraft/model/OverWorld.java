@@ -52,4 +52,25 @@ public class OverWorld implements CellFactory {
 
     @Override
     public Cell createWater() { return new MyCell(spriteStore.getSprite("water")); }
+
+    public Cell createMob() {
+        return new MyCell(spriteStore.getSprite("tool_diamondsword"));
+    }
+
+    @Override
+    public Cell createRessource(int i) {
+        switch (i)
+        {
+            case 0:
+                return new MyCell(spriteStore.getSprite("mineral_coal"));
+            case 1:
+                return new MyCell(spriteStore.getSprite("mineral_iron"));
+            case 2:
+                return new MyCell(spriteStore.getSprite("mineral_gold"));
+            case 3:
+                return new MyCell(spriteStore.getSprite("mineral_diamond"));
+            default:
+                return new MyCell(spriteStore.getSprite("mineral_diamond"));
+        }
+    }
 }

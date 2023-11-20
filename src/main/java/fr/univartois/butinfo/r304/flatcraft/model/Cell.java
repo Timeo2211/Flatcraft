@@ -16,6 +16,7 @@
 
 package fr.univartois.butinfo.r304.flatcraft.model;
 
+import fr.univartois.butinfo.r304.flatcraft.model.movables.Player;
 import fr.univartois.butinfo.r304.flatcraft.model.resources.Resource;
 import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
 import javafx.beans.property.ObjectProperty;
@@ -101,7 +102,9 @@ public interface Cell {
      *
      * @return Si une ressource a été extraite.
      */
-    // TODO Remplacez le type de ce paramètre par le type correspondant à votre joueur.
     boolean dig(IMovable player);
 
+
+    void celluleVide(Cell cell);
+    void celluleRessource(Cell cell);
 }
