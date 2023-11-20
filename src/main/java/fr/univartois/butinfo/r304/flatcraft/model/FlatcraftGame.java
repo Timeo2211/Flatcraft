@@ -111,6 +111,7 @@ public final class FlatcraftGame {
         this.cellFactory.setSpriteStore(spriteStore);
     }
 
+
     /**
      * Donne la largeur de la carte du jeu affichée (en pixels).
      *
@@ -254,6 +255,7 @@ public final class FlatcraftGame {
      * Fait creuser le joueur vers le haut.
      */
     public void digUp() {
+       // TODO : A compléter.
     }
 
     /**
@@ -261,11 +263,9 @@ public final class FlatcraftGame {
      */
     public void digDown() {
         Cell currentCell = getCellOf(player);
-        Cell below = map.getAt(currentCell.getRow(), currentCell.getColumn()-1);
-        if (below != null) {
-            this.dig(below);
+        if ((currentCell.getRow() + 1) < map.getHeight()) {
+            dig(map.getAt(currentCell.getRow() + 1, currentCell.getColumn()));
         }
-        this.move(player);
     }
 
     /**
@@ -273,18 +273,19 @@ public final class FlatcraftGame {
      */
     public void digLeft() {
         Cell currentCell = getCellOf(player);
-        Cell below = map.getAt(currentCell.getRow() - 1, currentCell.getColumn());
-
+        if ((currentCell.getColumn() - 1) >= 0) {
+            dig(map.getAt(currentCell.getRow(), currentCell.getColumn() - 1));
+        }
     }
 
     /**
      * Fait creuser le joueur vers la droite.
      */
     public void digRight() {
-
         Cell currentCell = getCellOf(player);
-        Cell below = map.getAt(currentCell.getRow() + 1, currentCell.getColumn());
-
+        if ((currentCell.getColumn() + 1) < map.getWidth()) {
+            dig(map.getAt(currentCell.getRow(), currentCell.getColumn() + 1));
+        }
     }
 
     /**
