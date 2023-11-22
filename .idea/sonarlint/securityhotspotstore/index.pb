@@ -44,3 +44,5 @@ Dsrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/Nether.java,f\c\fcca0
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 s
 Csrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/Ender.java,e\b\ebba9e1aef1fe2af9e7d0cbbeb7e06136bf1f0c1
+{
+Ksrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/map/WorldCell.java,f\5\f5d18ab3f2c8a5131c90c83007f91f29eaeaa84c

@@ -1,27 +1,17 @@
 
 f
-java:S2184—"HCast one of the operands of this multiplication operation to a "double".(Ş˜¹ú8í³ù™´1
+java:S2184š"HCast one of the operands of this multiplication operation to a "double".(Ş˜¹ú8í³ù™´1
+f
+java:S2184£"HCast one of the operands of this multiplication operation to a "double".(˜¯êŒ8ŠÙ«·¿1
 Ÿ
-java:S1186Ã"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(úù°¤8ş³ù™´1
-Ÿ
-java:S1186É"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(­ù¿ô8ş³ù™´1
-Ÿ
-java:S1186Ï"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÍÀ°§8ş³ù™´1
-Ÿ
-java:S1186ë"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ã± ±8ş³ù™´1
-Ÿ
-java:S1186ñ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÑÙ·É8ş³ù™´1
+java:S1186û"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ã± ±8ş³ù™´1
 |
-java:S1450]"ZRemove the "generateMap" field and declare it as a local variable in the relevant methods.(î•³‰şÿÿÿÿ8ÿ³ù™´1
+java:S1450_"ZRemove the "generateMap" field and declare it as a local variable in the relevant methods.(î•³‰şÿÿÿÿ8ÿ³ù™´1
 b
-java:S1117¬"?Rename "generateMap" which hides the field declared at line 93.(Ã°Şııÿÿÿÿ8Œ´ù™´1
-W
-java:S1854…"9Remove this useless assignment to local variable "below".(œ‡ä€8“´ù™´1
-H
-java:S1481…"*Remove this unused "below" local variable.(œ‡ä€8”´ù™´1
-\
-java:S1854"9Remove this useless assignment to local variable "below".(òôÉ¤ùÿÿÿÿ8•´ù™´1
-M
-java:S1481"*Remove this unused "below" local variable.(òôÉ¤ùÿÿÿÿ8•´ù™´1
+java:S1117²"?Rename "generateMap" which hides the field declared at line 95.(Ã°Şııÿÿÿÿ8Œ´ù™´1
+O
+java:S1135‚"2Complete the task associated to this TODO comment.(óäŠF8Û«·¿1
 Q
-java:S1068]"/Remove this unused "generateMap" private field.(î•³‰şÿÿÿÿ8™´ù™´1
+java:S1068_"/Remove this unused "generateMap" private field.(î•³‰şÿÿÿÿ8™´ù™´1
+G
+java:S1144æ")Remove this unused private "move" method.(É°¥Œ8¾Û«·¿1
