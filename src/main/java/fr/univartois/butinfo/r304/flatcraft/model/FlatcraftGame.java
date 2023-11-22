@@ -193,13 +193,23 @@ public final class FlatcraftGame {
         }
     }
 
+
+
+
     /**
      * Fait se déplacer le joueur vers le bas.
      */
-    public void moveDown() {
-        this.player.setVerticalSpeed(100);
-        if (this.player.getY() >= (map.getSoilHeight()-1) *spriteStore.getSpriteSize()) {
-            this.player.setVerticalSpeed(0);
+    public void gravity(IMovable movable){
+        //when player move up need to check if there is a block under him if no block under him he fall
+        Cell currentCell = getCellOf(movable);
+        //if there is no block under the player he fall else he stop falling
+        if (currentCell.getRow() + 1 < map.getHeight()) {
+            Cell below = map.getAt(currentCell.getRow() + 1, currentCell.getColumn());
+            if (below.getSprite().equals(spriteStore.getSprite("sky"))) {
+                movable.setVerticalSpeed(100);
+            } if (!below.getSprite().equals(spriteStore.getSprite("sky"))) {
+                movable.setVerticalSpeed(0);
+            }
         }
     }
 
@@ -236,13 +246,17 @@ public final class FlatcraftGame {
      * Interrompt le déplacement du joueur.
      */
     public void stopMoving() {
-
+        this.player.setHorizontalSpeed(0);
+        this.player.setVerticalSpeed(0);
+        gravity(player);
     }
+
 
     /**
      * Fait sauter le joueur.
      */
     public void jump() {
+
     }
 
     /**
