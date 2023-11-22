@@ -160,8 +160,9 @@ public final class FlatcraftGame {
         controller.bindXP(((Player) player).experienceProperty());
 
         // Ajoute a la liste movableObject ainsi qu'au controller pour crée ce mob
-        mob = new Mob(this, 10, (map.getSoilHeight()-1) *spriteStore.getSpriteSize(), spriteStore.getSprite("tool_meseaxe"), mob);
+        mob = new OverworldMob(this, 0, (map.getSoilHeight()-1) *spriteStore.getSpriteSize(), spriteStore.getSprite("nc_front"), 0);
         movableObjects.add(mob);
+        controller.addMovable(mob);
 
         // On démarre l'animation du jeu.
         animation.start();

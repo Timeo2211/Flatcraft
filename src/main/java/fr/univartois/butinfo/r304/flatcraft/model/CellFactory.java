@@ -79,7 +79,6 @@ public interface CellFactory {
     Cell createTree();
 
     Cell createWater();
-    Cell createMob();
 
     Cell createRessource(int i);
 }
