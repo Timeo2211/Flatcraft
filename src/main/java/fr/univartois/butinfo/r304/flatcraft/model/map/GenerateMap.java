@@ -104,8 +104,6 @@ public class GenerateMap implements fr.univartois.butinfo.r304.flatcraft.model.I
 
 
 
-        map.setAt(map.getSoilHeight() -1, 10, cellFactory.createMob());
-
         Random posRessource = new Random();
         int posH = posRessource.nextInt(74);
         int posV = posRessource.nextInt(height - map.getSoilHeight() - 1);
