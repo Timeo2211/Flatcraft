@@ -57,11 +57,11 @@ public class Nether implements CellFactory{
 
     @Override
     public Cell createMob() {
-        return new MyCell(spriteStore.getSprite("tool_diamondsword"));
+        return new MyCell(spriteStore.getSprite("nc_front"));
     }
 
     @Override
     public Cell createRessource(int i) {
-        return new MyCell(spriteStore.getSprite("mineral_diamond"));
+        return new MyCell(spriteStore.getSprite("debris_antique"));
     }
 }

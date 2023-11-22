@@ -54,7 +54,7 @@ public class OverWorld implements CellFactory {
     public Cell createWater() { return new MyCell(spriteStore.getSprite("water")); }
 
     public Cell createMob() {
-        return new MyCell(spriteStore.getSprite("tool_diamondsword"));
+        return new MyCell(spriteStore.getSprite("nc_front"));
     }
 
     @Override

@@ -19,7 +19,6 @@ package fr.univartois.butinfo.r304.flatcraft;
 import java.io.IOException;
 
 import fr.univartois.butinfo.r304.flatcraft.controller.*;
-import fr.univartois.butinfo.r304.flatcraft.model.OverWorld;
 import fr.univartois.butinfo.r304.flatcraft.model.FlatcraftGame;
 import fr.univartois.butinfo.r304.flatcraft.model.map.WorldCell;
 import fr.univartois.butinfo.r304.flatcraft.view.*;
@@ -60,7 +59,7 @@ public final class Flatcraft extends Application {
         controller.setStage(stage);
 
         CellFactory cell = null;
-        String str = "overworld";
+        String str = "nether";
         if(str == "nether"){
             WorldCell factory = new WorldCell();
             cell = factory.createCellNether();
