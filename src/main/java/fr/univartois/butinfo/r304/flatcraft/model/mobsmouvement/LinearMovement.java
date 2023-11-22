@@ -2,7 +2,7 @@ package fr.univartois.butinfo.r304.flatcraft.model.mobsmouvement;
 
 import fr.univartois.butinfo.r304.flatcraft.model.AbstractMob;
 
-public class LinearMouvement implements IMobsMouvement {
+public class LinearMovement implements IMobsMovement{
     @Override
     public void move(AbstractMob abstractMob, long deltaTime) {
         if(abstractMob.getHorizontalSpeed() == 0)
