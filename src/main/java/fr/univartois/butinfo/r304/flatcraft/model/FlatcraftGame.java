@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import fr.univartois.butinfo.r304.flatcraft.model.map.GenerateMap;
+import fr.univartois.butinfo.r304.flatcraft.model.map.MyCell;
+import fr.univartois.butinfo.r304.flatcraft.model.resources.Resource;
 import fr.univartois.butinfo.r304.flatcraft.view.ISpriteStore;
 import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
 import javafx.beans.property.IntegerProperty;
@@ -159,7 +161,7 @@ public final class FlatcraftGame {
         controller.bindXP(((Player) player).experienceProperty());
 
         // Ajoute a la liste movableObject ainsi qu'au controller pour crée ce mob
-        mob = new Mob(this, 10, (map.getSoilHeight()-1) *spriteStore.getSpriteSize(), spriteStore.getSprite("tool_meseaxe"), mob);
+        mob = new Mob(this, 10, (map.getSoilHeight()-1) *spriteStore.getSpriteSize(), spriteStore.getSprite("tool_diamondsword"), mob);
         movableObjects.add(mob);
 
         // On démarre l'animation du jeu.
@@ -261,11 +263,14 @@ public final class FlatcraftGame {
      */
     public void digDown() {
         Cell currentCell = getCellOf(player);
-        Cell below = map.getAt(currentCell.getRow(), currentCell.getColumn()-1);
-        if (below != null) {
-            this.dig(below);
+        Cell cellResource = map.getAt(currentCell.getRow() + 1, currentCell.getColumn());
+        int hardness = GenerateMap.resources.get(cellResource).getHardness();
+        if (((currentCell.getRow() + 1) < map.getHeight()) && hardness == 0) {
+            dig(map.getAt(currentCell.getRow() + 1, currentCell.getColumn()));
+        } else{
+            hardness--;
+            GenerateMap.resources.replace(cellResource, new Resource("", cellResource.getSprite(), null, hardness));
         }
-        this.move(player);
     }
 
     /**
@@ -273,19 +278,37 @@ public final class FlatcraftGame {
      */
     public void digLeft() {
         Cell currentCell = getCellOf(player);
-        Cell below = map.getAt(currentCell.getRow() - 1, currentCell.getColumn());
+        Cell cellResource = map.getAt(currentCell.getRow(), currentCell.getColumn() - 1);
+        int hardness = GenerateMap.resources.get(cellResource).getHardness();
 
+        if (((currentCell.getColumn() - 1) >= 0)&& hardness==0) {
+            dig(map.getAt(currentCell.getRow(), currentCell.getColumn() - 1));
+        }else{
+            hardness--;
+            GenerateMap.resources.replace(cellResource, new Resource("", cellResource.getSprite(), null, hardness));
+        }
     }
 
     /**
      * Fait creuser le joueur vers la droite.
      */
     public void digRight() {
-
         Cell currentCell = getCellOf(player);
-        Cell below = map.getAt(currentCell.getRow() + 1, currentCell.getColumn());
+        Cell cellResource = map.getAt(currentCell.getRow(), currentCell.getColumn() + 1);
 
+        int hardness = GenerateMap.resources.get(cellResource).getHardness();
+
+        System.out.println(GenerateMap.resources.get(cellResource).getName());
+        System.out.println(hardness);
+        if (((currentCell.getColumn() + 1) < map.getWidth()) && (hardness == 0)) {
+            dig(map.getAt(currentCell.getRow(), currentCell.getColumn() + 1));
+        }
+        else{
+            hardness--;
+            GenerateMap.resources.replace(cellResource, new Resource("", cellResource.getSprite(), null, hardness));
+        }
     }
+
 
     /**
      * Creuse la cellule donnée pour en extraire une ressource.
@@ -319,4 +342,6 @@ public final class FlatcraftGame {
         // On récupère enfin la cellule à cette position dans la carte.
         return map.getAt(row, column);
     }
+
+
 }
