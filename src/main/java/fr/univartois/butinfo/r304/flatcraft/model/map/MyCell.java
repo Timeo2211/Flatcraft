@@ -57,8 +57,21 @@ public class MyCell extends AbstractCell{
 
     }
     //Implantez le code représentant le cas où la cellule contient une ressource. Cette fois-ci, lorsque le joueur se trouve au dessus de la cellule, il ne bouge plus. En revanche, lorsqu'il essaye de creuser, la ressource contenue reçoit un coup, et si cela suffit à la récupérer, alors la cellule doit devenir vide.
-    @Override
-    public void celluleRessource(Cell cell) {
-        cell.celluleRessource(this);
+
+    public Resource celluleRessource(Cell cell) {
+        Sprite sprite = cell.getSprite();
+        if (sprite.equals("mineral_coal")) {
+            return new Resource("coal", cell.getSprite(), null, 1);
+        } else if (sprite.equals("mineral_iron")) {
+            return new Resource("iron", cell.getSprite(), null, 2);
+        } else if (sprite.equals("mineral_gold")) {
+            return new Resource("gold", cell.getSprite(), null, 3);
+        } else if (sprite.equals("mineral_diamond")) {
+            return new Resource("diamond", cell.getSprite(), null, 4);
+        }else {
+            return new Resource("air", cell.getSprite(), null, 0);
+        }
+
     }
+
 }
