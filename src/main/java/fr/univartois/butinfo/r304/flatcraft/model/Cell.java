@@ -106,5 +106,5 @@ public interface Cell {
 
 
     void celluleVide(Cell cell);
-    void celluleRessource(Cell cell);
+    Resource celluleRessource(Cell cell);
 }
