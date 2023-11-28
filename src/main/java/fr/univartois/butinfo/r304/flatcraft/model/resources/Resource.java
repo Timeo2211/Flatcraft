@@ -51,7 +51,7 @@ public final class Resource {
      * Il s'agit du nombre de coups devant être appliqués avec un outil pour extraire
      * cette ressource depuis la map.
      */
-    private int hardness;
+    private static int hardness;
 
     /**
      * Crée une nouvelle instance de Resource.
@@ -71,7 +71,7 @@ public final class Resource {
         this.name = name;
         this.sprite = sprite;
         this.toolType = toolType;
-        this.hardness = hardness;
+        Resource.hardness = hardness;
     }
 
     /**
@@ -159,4 +159,7 @@ public final class Resource {
         return false;
     }
 
+    public void setHardness(int hardness) {
+        this.hardness = hardness;
+    }
 }
