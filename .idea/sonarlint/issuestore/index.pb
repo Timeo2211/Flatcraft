@@ -46,3 +46,15 @@ s
 Csrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/Ender.java,e\b\ebba9e1aef1fe2af9e7d0cbbeb7e06136bf1f0c1
 {
 Ksrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/map/WorldCell.java,f\5\f5d18ab3f2c8a5131c90c83007f91f29eaeaa84c
+€
+Psrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/resources/Resource.java,c\7\c7935c19961046862a6f21cfd6e8e322a4ea748c
+†
+Vsrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/resources/IRessourceEtat.java,7\9\7928e1f10c44fc235d1988fd4029a5655fb9460d
+x
+Hsrc/main/java/fr/univartois/butinfo/r304/flatcraft/view/SpriteStore.java,2\9\29ed5298a856d06808bb882cb45c476f45733344
+ƒ
+Ssrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/resources/MineralEtat.java,c\b\cb28b8b612778fc7345156b47f07b082dd22403a
+€
+Psrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/resources/LumpEtat.java,5\d\5d2ed6ad7ac06ff1a8fc4f65f549e8ffcc3f8896
+€
+Psrc/main/java/fr/univartois/butinfo/r304/flatcraft/model/resources/ToolType.java,1\5\156aa1853900b922da1c9cfd903d9e5a10afd7ff

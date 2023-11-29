@@ -36,10 +36,12 @@ public final class Resource {
      */
     private final String name;
 
+    public IRessourceEtat etat;
+
     /**
      * Le sprite représentant cette ressource.
      */
-    private final Sprite sprite;
+    private Sprite sprite;
 
     /**
      * Le type d'outils nécessaire pour extraire cette ressource de la carte.
@@ -74,6 +76,14 @@ public final class Resource {
         this.hardness = hardness;
     }
 
+    public static void setResourceEtat(LumpEtat lumpEtat) {
+        return ;
+    }
+
+    public static Resource getSpriteStore() {
+        return null;
+    }
+
     /**
      * Donne le nom unique identifiant le type de cette ressource.
      *
@@ -88,7 +98,7 @@ public final class Resource {
      *
      * @return Le sprite représentant cette ressource.
      */
-    public Sprite getSprite() {
+    public Sprite getSprite(String lump) {
         return sprite;
     }
 
@@ -159,4 +169,15 @@ public final class Resource {
         return false;
     }
 
+    public void setEtat(IRessourceEtat etat) {
+        this.etat = etat;
+    }
+
+    public void nextEtat() {
+        etat.nextEtat(this);
+    }
+
+    public void setSprite(Sprite lump) {
+        this.sprite = lump;
+    }
 }
