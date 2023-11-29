@@ -59,7 +59,7 @@ public final class Flatcraft extends Application {
         controller.setStage(stage);
 
         CellFactory cell = null;
-        String str = "nether";
+        String str = "overworld";
         if(str == "nether"){
             WorldCell factory = new WorldCell();
             cell = factory.createCellNether();
