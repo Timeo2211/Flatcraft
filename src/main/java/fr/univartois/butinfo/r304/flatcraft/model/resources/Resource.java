@@ -102,6 +102,9 @@ public final class Resource {
         return sprite;
     }
 
+    public Sprite getSprite() {
+        return sprite;
+    }
     /**
      * Donne le type d'outils nécessaire pour extraire cette ressource de la carte.
      *
