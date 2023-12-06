@@ -79,7 +79,7 @@ public final class FlatcraftGame {
     /**
      * La représentation du joueur.
      */
-    private IMovable player;
+    private Player player;
 
     private IMovable mob;
 
@@ -131,6 +131,10 @@ public final class FlatcraftGame {
         return height;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
     public void setGenerateMap(IGenerateMap generateMap){
         this.generateMap = generateMap;
     }
@@ -164,6 +168,8 @@ public final class FlatcraftGame {
         mob = new OverworldMob(this, 0, (map.getSoilHeight()-1) *spriteStore.getSpriteSize(), spriteStore.getSprite("nc_front"), 0);
         movableObjects.add(mob);
         controller.addMovable(mob);
+
+        controller.bindInventory(((Player) player).getInventory());
 
         // On démarre l'animation du jeu.
         animation.start();
