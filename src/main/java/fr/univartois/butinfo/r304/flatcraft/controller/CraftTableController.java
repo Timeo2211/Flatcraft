@@ -28,6 +28,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
+import fr.univartois.butinfo.r304.flatcraft.model.movables.Player;
 
 /**
  * La classe {@link CraftTableController} fournit le contrôleur permettant de gérer la
@@ -89,6 +90,7 @@ public final class CraftTableController {
      */
     @FXML
     private Button clearButton;
+    private Player player;
 
     /**
      * Initialise ce contrôleur.
@@ -188,8 +190,10 @@ public final class CraftTableController {
      */
     public void setGame(FlatcraftGame game) {
         this.game = game;
-    }
 
+        // Utilisation du getter pour obtenir l'instance du joueur
+        this.player = game.getPlayer();
+    }
     /**
      * Crée une nouvelle ressource à partir de celles déposées sur la table de craft.
      */
@@ -211,7 +215,15 @@ public final class CraftTableController {
      */
     @FXML
     private void addToInventory() {
-        // TODO Ajoutez un l'inventaire du joueur la ressource "product" ayant été produite.
+        // TODO Ajoutez la ressource nouvellement créée à l'inventaire du joueur.
+        player.addResource(product, 1);
+
+        // On met à jour les actions disponibles.
+        craftGrid.setDisable(false);
+        craftButton.setDisable(false);
+        clearButton.setDisable(false);
+        addButton.setDisable(true);
+        productView.setImage(null);
     }
 
     /**
