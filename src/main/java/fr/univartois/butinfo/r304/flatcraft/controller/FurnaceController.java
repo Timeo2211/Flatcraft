@@ -26,6 +26,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.GridPane;
+import fr.univartois.butinfo.r304.flatcraft.model.movables.Player;
 
 /**
  * La classe {@link FurnaceController} fournit le contrôleur permettant de gérer le
@@ -94,6 +95,8 @@ public final class FurnaceController {
      */
     @FXML
     private Button clearButton;
+
+    private Player player;
 
     /**
      * Initialise ce contrôleur.
@@ -171,6 +174,7 @@ public final class FurnaceController {
      */
     public void setGame(FlatcraftGame game) {
         this.game = game;
+        this.player = game.getPlayer();
     }
 
     /**
@@ -194,7 +198,20 @@ public final class FurnaceController {
      */
     @FXML
     private void addToInventory() {
-        // TODO Récupérer le joueur ou définir une méthode pour pouvoir effectuer l'ajout.
+        player.addResource(product, 1);
+
+        resources[0] = null;
+        fuelView.setImage(null);
+        resources[1] = null;
+        resourceView.setImage(null);
+        product = null;
+        productView.setImage(null);
+
+        furnaceGrid.setDisable(false);
+        addButton.setDisable(true);
+        cookButton.setDisable(true);
+        clearButton.setDisable(true);
+
     }
 
     /**
