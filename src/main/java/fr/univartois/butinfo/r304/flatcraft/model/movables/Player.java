@@ -62,4 +62,13 @@ public class Player extends AbstractMovable {
             inventory.remove(resource);
         }
     }
+
+    public Resource getResourceParNom(String nomRessource){
+        for (Resource resource : inventory.keySet()) {
+            if (resource.getName().equals(nomRessource)) {
+                return resource;
+            }
+        }
+        return null;
+    }
 }
