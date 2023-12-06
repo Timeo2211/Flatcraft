@@ -94,6 +94,7 @@
                     <center>
                         <HBox fx:id="inventory" BorderPane.alignment="CENTER"
                             maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                        <Button text="Nether" onAction="#nether" BorderPane.alignment="CENTER"> </Button>
                     </center>
                     <right>
                         <Button text="FURNACE" onAction="#showFurnace" BorderPane.alignment="CENTER">

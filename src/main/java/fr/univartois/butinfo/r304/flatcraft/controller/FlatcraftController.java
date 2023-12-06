@@ -20,13 +20,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import fr.univartois.butinfo.r304.flatcraft.model.Cell;
-import fr.univartois.butinfo.r304.flatcraft.model.FlatcraftGame;
-import fr.univartois.butinfo.r304.flatcraft.model.GameMap;
-import fr.univartois.butinfo.r304.flatcraft.model.IFlatcraftController;
-import fr.univartois.butinfo.r304.flatcraft.model.IMovable;
+import fr.univartois.butinfo.r304.flatcraft.Flatcraft;
+import fr.univartois.butinfo.r304.flatcraft.model.*;
+import fr.univartois.butinfo.r304.flatcraft.model.map.WorldCell;
 import fr.univartois.butinfo.r304.flatcraft.model.resources.Resource;
 import fr.univartois.butinfo.r304.flatcraft.view.ResourceInInventory;
+import fr.univartois.butinfo.r304.flatcraft.view.SpriteStore;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.collections.MapChangeListener;
@@ -368,6 +367,40 @@ public final class FlatcraftController implements IFlatcraftController {
         furnaceStage.initOwner(stage);
         furnaceStage.setScene(new Scene(viewContent));
         furnaceStage.show();
+    }
+
+    public static CellFactory changeWorld(WorldType worldName){
+        CellFactory cell = null;
+
+        if(worldName.equals(WorldType.NETHER)){
+            WorldCell factory = new WorldCell();
+            return cell = factory.createCellNether();
+
+        }
+        else if(worldName.equals(WorldType.ENDER)){
+            WorldCell factory = new WorldCell();
+            return cell = factory.createCellEnder();
+        }
+        else if(worldName.equals(WorldType.OVERWORLD)){
+            WorldCell factory = new WorldCell();
+            return cell = factory.createCellOverWorld();
+        }
+        return cell;
+    }
+    public final static int GAME_WIDTH = 1280;
+    public final static int GAME_HEIGHT = 720;
+    public void refresh(WorldType world) throws IOException {
+        //update view to change the overworld to nether or ender
+
+        game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT, new SpriteStore(), changeWorld(world));
+        game.setController(this);
+        game.prepare();
+
+    }
+    @FXML
+    private void nether() throws IOException {
+        System.out.println("Nether button");
+        refresh(WorldType.NETHER);
     }
 
     /**

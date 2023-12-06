@@ -19,7 +19,9 @@ package fr.univartois.butinfo.r304.flatcraft.model;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import fr.univartois.butinfo.r304.flatcraft.model.map.DimensionState;
 import fr.univartois.butinfo.r304.flatcraft.model.map.GenerateMap;
+import fr.univartois.butinfo.r304.flatcraft.model.map.WorldCell;
 import fr.univartois.butinfo.r304.flatcraft.model.resources.Resource;
 import fr.univartois.butinfo.r304.flatcraft.view.ISpriteStore;
 import fr.univartois.butinfo.r304.flatcraft.view.Sprite;
@@ -350,6 +352,8 @@ public final class FlatcraftGame {
         // TODO Vous devez compléter cette méthode.
         throw new UnsupportedOperationException("Pas encore implémentée !");
     }
+
+    // updateview permet de changer de monde sans redemarrer le jeux avec
 
 
 }
