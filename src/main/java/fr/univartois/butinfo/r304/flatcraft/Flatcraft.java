@@ -38,6 +38,7 @@ import javafx.stage.Stage;
  */
 public final class Flatcraft extends Application {
 
+
     /**
      * La largeur (en pixels) de la fenêtre affichant le jeu.
      */
@@ -48,7 +49,17 @@ public final class Flatcraft extends Application {
      */
     private static final int GAME_HEIGHT = 720;
 
-    private static IGenerateMap generateMap;
+    /**
+     * Le nombre de fois que la carte se "répète" horizontalement.
+     * Cela permet d'avoir une carte plus grande que la fenêtre.
+     */
+    private static final int MAP_REPEAT = 50;
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see javafx.application.Application#start(javafx.stage.Stage)
+     */
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -75,7 +86,7 @@ public final class Flatcraft extends Application {
 
 
 
-        FlatcraftGame game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT, new SpriteStore(),  cell);
+        FlatcraftGame game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT,2, new SpriteStore(),  cell);
         controller.setGame(game);
         game.setController(controller);
         game.prepare();
