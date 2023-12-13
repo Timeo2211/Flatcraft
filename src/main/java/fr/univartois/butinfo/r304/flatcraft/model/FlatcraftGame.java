@@ -47,6 +47,12 @@ public final class FlatcraftGame {
     private final int height;
 
     /**
+     * Le nombre de fois que la carte se "répète" horizontalement.
+     */
+    private final int mapRepeat;
+
+
+    /**
      * Le contrôleur de l'application.
      */
     private IFlatcraftController controller;
@@ -65,6 +71,13 @@ public final class FlatcraftGame {
      * La carte du jeu, sur laquelle le joueur évolue.
      */
     private GameMap map;
+
+    /**
+     * La position à gauche de la carte dans la fenêtre.
+     * Celle-ci change lorsque l'utilisateur se déplace horizontalement.
+     */
+    private IntegerProperty leftAnchor = new SimpleIntegerProperty(0);
+
 
     /**
      * Le temps écoulé depuis le début de la partie.
@@ -100,17 +113,20 @@ public final class FlatcraftGame {
      *
      * @param width La largeur de la carte du jeu (en pixels).
      * @param height La hauteur de la carte du jeu (en pixels).
+     * @param mapRepeat Le nombre de fois que la carte se "répète" horizontalement.
      * @param spriteStore L'instance de {@link ISpriteStore} permettant de créer les
      *        {@link Sprite} du jeu.
      * @param factory La fabrique permettant de créer les cellules du jeux.
      */
-    public FlatcraftGame(int width, int height, ISpriteStore spriteStore, CellFactory factory) {
+    public FlatcraftGame(int width, int height, int mapRepeat, ISpriteStore spriteStore, CellFactory factory) {
         this.width = width;
         this.height = height;
+        this.mapRepeat = mapRepeat;
         this.spriteStore = spriteStore;
         this.cellFactory = factory;
         this.cellFactory.setSpriteStore(spriteStore);
     }
+
 
 
     /**
@@ -237,6 +253,12 @@ public final class FlatcraftGame {
                 break;
             }
         }
+
+        // On positionne la carte pour afficher la section où se trouve le joueur.
+        int middlePosition = player.getX() + player.getWidth() / 2;
+        int mapSection = middlePosition / width;
+        leftAnchor.set(-mapSection * width);
+
     }
 
     /**
