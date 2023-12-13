@@ -69,4 +69,9 @@ public class OverWorld implements CellFactory {
                 return new MyCell(spriteStore.getSprite("mineral_diamond"));
         }
     }
+
+    @Override
+    public void getCraftRules() {
+
+    }
 }

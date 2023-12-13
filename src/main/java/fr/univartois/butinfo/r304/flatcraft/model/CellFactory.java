@@ -81,4 +81,6 @@ public interface CellFactory {
     Cell createWater();
 
     Cell createRessource(int i);
+
+     void getCraftRules();
 }
