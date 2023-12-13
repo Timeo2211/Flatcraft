@@ -19,7 +19,10 @@ package fr.univartois.butinfo.r304.flatcraft.model;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+<<<<<<< src/main/java/fr/univartois/butinfo/r304/flatcraft/model/FlatcraftGame.java
 import fr.univartois.butinfo.r304.flatcraft.model.map.DimensionState;
+import fr.univartois.butinfo.r304.flatcraft.model.craft.CraftRule;
+>>>>>>> src/main/java/fr/univartois/butinfo/r304/flatcraft/model/FlatcraftGame.java
 import fr.univartois.butinfo.r304.flatcraft.model.map.GenerateMap;
 import fr.univartois.butinfo.r304.flatcraft.model.map.WorldCell;
 import fr.univartois.butinfo.r304.flatcraft.model.resources.Resource;
@@ -166,6 +169,7 @@ public final class FlatcraftGame {
         mob = new OverworldMob(this, 0, (map.getSoilHeight()-1) *spriteStore.getSpriteSize(), spriteStore.getSprite("nc_front"), 0);
         movableObjects.add(mob);
         controller.addMovable(mob);
+
 
         // On démarre l'animation du jeu.
         animation.start();
@@ -335,7 +339,8 @@ public final class FlatcraftGame {
      * @return La ressource produite.
      */
     public Resource craft(Resource[][] inputResources) {
-        // TODO Vous devez compléter cette méthode.
+        //Complétez les méthodes craft() et cook() de la classe FlatcraftGame afin d'appliquer les règles appropriées pour former une nouvelle ressource à partir de celles données en paramètres. Si aucune règle ne correspond, vous utiliserez la méthode displayError() du contrôleur afin d'afficher un message d'erreur à l'utilisateur.
+
         throw new UnsupportedOperationException("Pas encore implémentée !");
     }
 
@@ -349,7 +354,7 @@ public final class FlatcraftGame {
      * @return La ressource produite.
      */
     public Resource cook(Resource fuel, Resource resource) {
-        // TODO Vous devez compléter cette méthode.
+
         throw new UnsupportedOperationException("Pas encore implémentée !");
     }
 

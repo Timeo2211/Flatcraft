@@ -59,4 +59,9 @@ public class Nether implements CellFactory{
     public Cell createRessource(int i) {
         return new MyCell(spriteStore.getSprite("debris_antique"));
     }
+
+    @Override
+    public void getCraftRules() {
+
+    }
 }
