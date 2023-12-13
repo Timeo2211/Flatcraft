@@ -20,10 +20,18 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+<<<<<<< src/main/java/fr/univartois/butinfo/r304/flatcraft/controller/FlatcraftController.java
+import fr.univartois.butinfo.r304.flatcraft.model.Cell;
+import fr.univartois.butinfo.r304.flatcraft.model.FlatcraftGame;
+import fr.univartois.butinfo.r304.flatcraft.model.GameMap;
+import fr.univartois.butinfo.r304.flatcraft.model.IFlatcraftController;
+import fr.univartois.butinfo.r304.flatcraft.model.IMovable;
+import fr.univartois.butinfo.r304.flatcraft.model.resources.Inventoriable;
 import fr.univartois.butinfo.r304.flatcraft.Flatcraft;
 import fr.univartois.butinfo.r304.flatcraft.model.*;
 import fr.univartois.butinfo.r304.flatcraft.model.map.WorldCell;
 import fr.univartois.butinfo.r304.flatcraft.model.resources.Resource;
+>>>>>>> src/main/java/fr/univartois/butinfo/r304/flatcraft/controller/FlatcraftController.java
 import fr.univartois.butinfo.r304.flatcraft.view.ResourceInInventory;
 import fr.univartois.butinfo.r304.flatcraft.view.SpriteStore;
 import javafx.beans.binding.Bindings;
@@ -113,7 +121,7 @@ public final class FlatcraftController implements IFlatcraftController {
     /**
      * Les composants affichant les ressources actuellement dans l'inventaire du joueur.
      */
-    private Map<Resource, ResourceInInventory> resourcesInInventory = new HashMap<>();
+    private Map<Inventoriable, ResourceInInventory> resourcesInInventory = new HashMap<>();
 
     /**
      * Associe à ce contrôleur la fenêtre dans laquelle se déroule le jeu.
@@ -208,6 +216,19 @@ public final class FlatcraftController implements IFlatcraftController {
     /*
      * (non-Javadoc)
      *
+     * @see
+     * fr.univartois.butinfo.r304.flatcraft.model.IFlatcraftController#bindLeftAnchor(
+     * javafx.beans.property.IntegerProperty)
+     */
+    @Override
+    public void bindLeftAnchor(IntegerProperty screenAnchor) {
+        background.translateXProperty().bind(screenAnchor);
+        mainPane.translateXProperty().bind(screenAnchor);
+    }
+
+    /*
+     * (non-Javadoc)
+     *
      * @see fr.univartois.butinfo.r304.flatcraft.controller.IFlatcraftController#bindTime(
      * javafx.beans.property.IntegerProperty)
      */
@@ -259,8 +280,8 @@ public final class FlatcraftController implements IFlatcraftController {
      * javafx.collections.ObservableMap)
      */
     @Override
-    public void bindInventory(ObservableMap<Resource, Integer> playerInventory) {
-        playerInventory.addListener((MapChangeListener<Resource, Integer>) change -> {
+    public void bindInventory(ObservableMap<Inventoriable, Integer> playerInventory) {
+        playerInventory.addListener((MapChangeListener<Inventoriable, Integer>) change -> {
             if (change.wasAdded() && !resourcesInInventory.containsKey(change.getKey())) {
                 // Il faut ajouter la ressource à l'affichage.
                 ResourceInInventory resource = new ResourceInInventory(change.getKey());
@@ -269,7 +290,8 @@ public final class FlatcraftController implements IFlatcraftController {
                 dragResource(resource);
                 inventory.getChildren().add(resource.getNode());
 
-            } else if (change.wasRemoved() && (!change.wasAdded()) && (change.getValueRemoved() == 1)) {
+            } else if (change.wasRemoved() && (!change.wasAdded())
+                    && (change.getValueRemoved() == 1)) {
                 // La ressource doit être retirée de l'affichage.
                 ResourceInInventory resource = resourcesInInventory.remove(change.getKey());
                 inventory.getChildren().remove(resource.getNode());
