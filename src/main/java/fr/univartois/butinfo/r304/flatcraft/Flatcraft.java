@@ -50,6 +50,7 @@ public final class Flatcraft extends Application {
 
     private static IGenerateMap generateMap;
 
+
     @Override
     public void start(Stage stage) throws IOException {
         // On commence par charger la vue et son contrôleur.
@@ -58,24 +59,8 @@ public final class Flatcraft extends Application {
         FlatcraftController controller = fxmlLoader.getController();
         controller.setStage(stage);
 
-        CellFactory cell = null;
-        String str = "overworld";
-        if(str == "nether"){
-            WorldCell factory = new WorldCell();
-            cell = factory.createCellNether();
-        }
-        else if(str == "ender"){
-            WorldCell factory = new WorldCell();
-            cell = factory.createCellEnder();
-        }
-        else if(str == "overworld"){
-            WorldCell factory = new WorldCell();
-            cell = factory.createCellOverWorld();
-        }
 
-
-
-        FlatcraftGame game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT, new SpriteStore(),  cell);
+        FlatcraftGame game = new FlatcraftGame(GAME_WIDTH, GAME_HEIGHT, new SpriteStore(), FlatcraftController.changeWorld(WorldType.OVERWORLD));
         controller.setGame(game);
         game.setController(controller);
         game.prepare();
@@ -87,6 +72,8 @@ public final class Flatcraft extends Application {
         stage.setResizable(false);
         stage.show();
     }
+
+
 
     /**
      * Exécute l'application JavaFX du jeu Flatcraft.
