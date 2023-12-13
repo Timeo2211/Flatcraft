@@ -81,7 +81,7 @@ public abstract class AbstractCell implements Cell {
      */
     protected AbstractCell(Resource resource) {
         this.resourceProperty.set(resource);
-        this.spriteProperty.set(resource.getSprite());
+        this.spriteProperty.set(resource.getSprite("lump"));
     }
 
     /*

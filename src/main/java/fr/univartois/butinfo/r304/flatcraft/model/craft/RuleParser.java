@@ -16,6 +16,7 @@
 
 package fr.univartois.butinfo.r304.flatcraft.model.craft;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,7 +28,7 @@ import java.io.InputStreamReader;
  *
  * @version 0.1.0
  */
-public final class RuleParser {
+public final class RuleParser implements RuleBuilder {
 
     /**
      * Le nom du fichier depuis lequel les règles doivent être lues.
@@ -71,7 +72,54 @@ public final class RuleParser {
      * @param quantity La quantité obtenue pour la ressource produite.
      */
     private void addRule(String rule, String product, int quantity) {
-        // TODO Ajoutez ici le code propre à votre application pour gérer les règles.
+        // Choisissez le bon constructeur en fonction du type de règle (table de craft ou fourneau)
+        RuleBuilder builder;
+
+        // Assumez que le type de règle est déterminé par une logique quelconque, par exemple, en analysant la règle.
+        // Vous devez adapter cela en fonction de la logique réelle de votre application.
+        if (rule.contains("craft")) {
+            builder = new CraftRuleBuilder();
+        } else if (rule.contains("furnace")) {
+            builder = new FurnaceRuleBuilder();
+        } else {
+            // Gestion d'erreur ou une logique par défaut
+            throw new IllegalArgumentException("Type de règle non pris en charge");
+        }
+
+        // Utilisez le directeur pour construire la règle
+        RuleDirector director = new RuleDirector(builder);
+        director.constructRule(rule, product, "",2); // Ajoutez les conditions si nécessaires
+
+        // Obtenez le résultat et ajoutez la règle à votre gestionnaire de règles
+        CraftRule result = director.getRule();
+        result.setQuantity(quantity);
+        // Ajoutez la règle à votre gestionnaire de règles
+
     }
 
+
+    @Override
+    public void addInput(String input) {
+
+    }
+
+    @Override
+    public void addOutput(String output) {
+
+    }
+
+    @Override
+    public void setConditions(String conditions) {
+
+    }
+
+    @Override
+    public CraftRule getResult() {
+        return null;
+    }
+
+    @Override
+    public void setQuantity(int quantity) {
+
+    }
 }

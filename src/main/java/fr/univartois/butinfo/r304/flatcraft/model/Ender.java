@@ -51,4 +51,9 @@ public class Ender implements CellFactory{
     public Cell createRessource(int i) {
         return new MyCell(spriteStore.getSprite("mineral_diamond"));
     }
+
+    @Override
+    public void getCraftRules() {
+
+    }
 }

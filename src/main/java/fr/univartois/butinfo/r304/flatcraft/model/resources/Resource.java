@@ -36,10 +36,12 @@ public final class Resource implements Inventoriable {
      */
     private final String name;
 
+    public IRessourceEtat etat;
+
     /**
      * Le sprite représentant cette ressource.
      */
-    private final Sprite sprite;
+    private Sprite sprite;
 
     /**
      * Le type d'outils nécessaire pour extraire cette ressource de la carte.
@@ -74,8 +76,16 @@ public final class Resource implements Inventoriable {
         this.hardness = hardness;
     }
 
-    /*
-     * (non-Javadoc)
+    public static void setResourceEtat(LumpEtat lumpEtat) {
+        return ;
+    }
+
+    public static Resource getSpriteStore() {
+        return null;
+    }
+
+    /**
+     * Donne le nom unique identifiant le type de cette ressource.
      *
      * @see fr.univartois.butinfo.r304.flatcraft.model.resources.Inventoriable#getName()
      */
@@ -89,13 +99,15 @@ public final class Resource implements Inventoriable {
      *
      * @see fr.univartois.butinfo.r304.flatcraft.model.resources.Inventoriable#getSprite()
      */
-    @Override
-    public Sprite getSprite() {
+    public Sprite getSprite(String lump) {
         return sprite;
     }
 
-    /*
-     * (non-Javadoc)
+    public Sprite getSprite() {
+        return sprite;
+    }
+    /**
+     * Donne le type d'outils nécessaire pour extraire cette ressource de la carte.
      *
      * @see fr.univartois.butinfo.r304.flatcraft.model.resources.Inventoriable#getToolType()
      */
@@ -152,4 +164,15 @@ public final class Resource implements Inventoriable {
         return false;
     }
 
+    public void setEtat(IRessourceEtat etat) {
+        this.etat = etat;
+    }
+
+    public void nextEtat() {
+        etat.nextEtat(this);
+    }
+
+    public void setSprite(Sprite lump) {
+        this.sprite = lump;
+    }
 }
